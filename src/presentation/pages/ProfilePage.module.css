@@ -1,0 +1,264 @@
+.container {
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 2rem 1rem;
+}
+
+@media (min-width: 768px) {
+  .container {
+    padding: 3rem 1.5rem;
+  }
+}
+
+/* Loading State */
+.loadingContainer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 4rem 1rem;
+  color: #6b7280;
+  gap: 1rem;
+}
+
+.spinner {
+  width: 2rem;
+  height: 2rem;
+  border: 3px solid #e5e7eb;
+  border-top-color: #f59e0b;
+  border-radius: 50%;
+  animation: spin 0.8s linear infinite;
+}
+
+@keyframes spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+/* Profile Header */
+.header {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+  padding-bottom: 2rem;
+  border-bottom: 1px solid #e5e7eb;
+  margin-bottom: 2rem;
+}
+
+@media (min-width: 640px) {
+  .header {
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: flex-start;
+  }
+}
+
+.profileInfo {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.avatar {
+  width: 5rem;
+  height: 5rem;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 3px solid #f59e0b;
+}
+
+.avatarPlaceholder {
+  width: 5rem;
+  height: 5rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  border-radius: 50%;
+  color: white;
+  font-weight: 700;
+  font-size: 2rem;
+  border: 3px solid #f59e0b;
+}
+
+.userDetails {
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+}
+
+.userName {
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: #111827;
+  margin: 0;
+}
+
+.userEmail {
+  font-size: 0.875rem;
+  color: #6b7280;
+  margin: 0;
+}
+
+.stats {
+  font-size: 0.875rem;
+  color: #9ca3af;
+  margin: 0.5rem 0 0 0;
+}
+
+.statNumber {
+  font-weight: 600;
+  color: #f59e0b;
+}
+
+.signOutButton {
+  padding: 0.5rem 1rem;
+  background: white;
+  border: 1px solid #e5e7eb;
+  border-radius: 0.5rem;
+  font-size: 0.875rem;
+  font-weight: 500;
+  color: #6b7280;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.signOutButton:hover {
+  background: #f9fafb;
+  border-color: #d1d5db;
+  color: #374151;
+}
+
+.signOutButton:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+/* Content Section */
+.content {
+  min-height: 300px;
+}
+
+.sectionTitle {
+  font-size: 1.25rem;
+  font-weight: 600;
+  color: #111827;
+  margin: 0 0 1.5rem 0;
+}
+
+/* Empty State */
+.emptyState {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 4rem 1rem;
+  text-align: center;
+  background: #f9fafb;
+  border-radius: 1rem;
+  border: 2px dashed #e5e7eb;
+}
+
+.emptyIcon {
+  width: 4rem;
+  height: 4rem;
+  color: #d1d5db;
+  margin-bottom: 1rem;
+}
+
+.emptyTitle {
+  font-size: 1.125rem;
+  font-weight: 600;
+  color: #374151;
+  margin: 0 0 0.5rem 0;
+}
+
+.emptyText {
+  font-size: 0.875rem;
+  color: #6b7280;
+  margin: 0;
+  max-width: 300px;
+}
+
+/* Folders */
+.foldersContainer {
+  display: flex;
+  flex-direction: column;
+  gap: 2.5rem;
+}
+
+.folder {
+  background: #fafafa;
+  border-radius: 1rem;
+  padding: 1.5rem;
+  border: 1px solid #f3f4f6;
+}
+
+.folderHeader {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  margin-bottom: 1.25rem;
+  padding-bottom: 1rem;
+  border-bottom: 1px solid #e5e7eb;
+}
+
+.folderIcon {
+  width: 2.5rem;
+  height: 2.5rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: linear-gradient(135deg, #f59e0b 0%, #d97706 100%);
+  border-radius: 0.75rem;
+  color: white;
+}
+
+.folderIcon svg {
+  width: 1.25rem;
+  height: 1.25rem;
+}
+
+.folderInfo {
+  display: flex;
+  flex-direction: column;
+  gap: 0.125rem;
+}
+
+.folderName {
+  font-size: 1.125rem;
+  font-weight: 600;
+  color: #111827;
+  margin: 0;
+}
+
+.folderCount {
+  font-size: 0.75rem;
+  color: #9ca3af;
+}
+
+/* Cards Grid */
+.cardsGrid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 1rem;
+}
+
+@media (min-width: 640px) {
+  .cardsGrid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (min-width: 1024px) {
+  .cardsGrid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+@media (min-width: 1280px) {
+  .cardsGrid {
+    grid-template-columns: repeat(4, 1fr);
+  }
+}

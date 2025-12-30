@@ -1,0 +1,667 @@
+.page {
+  width: 100%;
+}
+
+.container {
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
+.containerWide {
+  width: 100%;
+  max-width: 100%;
+  padding: 0 20px;
+}
+
+@media (min-width: 768px) {
+  .container {
+    padding: 0 40px;
+  }
+  .containerWide {
+    padding: 0 40px;
+  }
+}
+
+/* ============================================
+   EDITORIAL SECTION - Get to Cusco
+   ============================================ */
+.editorialSection {
+  padding: 80px 0;
+  background: #ffffff;
+}
+
+@media (min-width: 768px) {
+  .editorialSection {
+    padding: 120px 0;
+  }
+}
+
+.editorialGrid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 40px;
+  align-items: center;
+}
+
+@media (min-width: 968px) {
+  .editorialGrid {
+    grid-template-columns: 1fr 1fr;
+    gap: 80px;
+  }
+}
+
+.editorialContent {
+  order: 2;
+}
+
+@media (min-width: 968px) {
+  .editorialContent {
+    order: 1;
+  }
+}
+
+.eyebrow {
+  display: inline-block;
+  font-size: 12px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  color: #d97706;
+  margin-bottom: 16px;
+}
+
+.editorialTitle {
+  font-size: 36px;
+  font-weight: 800;
+  color: #111827;
+  margin: 0 0 24px;
+  line-height: 1.1;
+}
+
+@media (min-width: 768px) {
+  .editorialTitle {
+    font-size: 48px;
+  }
+}
+
+.editorialText {
+  font-size: 17px;
+  color: #4b5563;
+  line-height: 1.8;
+  margin: 0 0 20px;
+}
+
+.editorialText strong {
+  color: #111827;
+}
+
+.ctaButton {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  margin-top: 16px;
+  padding: 14px 28px;
+  background: linear-gradient(135deg, #1e3a5f 0%, #2d5a87 100%);
+  color: #ffffff;
+  font-size: 15px;
+  font-weight: 600;
+  border-radius: 50px;
+  text-decoration: none;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 14px rgba(30, 58, 95, 0.3);
+}
+
+.ctaButton:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 24px rgba(30, 58, 95, 0.4);
+}
+
+.ctaIcon {
+  width: 20px;
+  height: 20px;
+}
+
+.editorialImage {
+  position: relative;
+  order: 1;
+}
+
+@media (min-width: 968px) {
+  .editorialImage {
+    order: 2;
+  }
+}
+
+.editorialImage img {
+  width: 100%;
+  height: 400px;
+  object-fit: cover;
+  border-radius: 20px;
+}
+
+@media (min-width: 768px) {
+  .editorialImage img {
+    height: 500px;
+  }
+}
+
+.imageOverlay {
+  position: absolute;
+  bottom: 20px;
+  left: 20px;
+  background: rgba(255, 255, 255, 0.95);
+  backdrop-filter: blur(10px);
+  padding: 16px 24px;
+  border-radius: 12px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
+}
+
+.overlayText {
+  display: block;
+  font-size: 18px;
+  font-weight: 700;
+  color: #111827;
+}
+
+.overlaySubtext {
+  font-size: 14px;
+  color: #6b7280;
+}
+
+/* ============================================
+   MAP SECTION
+   ============================================ */
+.mapSection {
+  padding: 80px 0;
+  background: #f8fafc;
+}
+
+.mapHeader {
+  text-align: center;
+  margin-bottom: 40px;
+}
+
+.mapTitle {
+  font-size: 32px;
+  font-weight: 800;
+  color: #111827;
+  margin: 0 0 8px;
+}
+
+.mapSubtitle {
+  font-size: 16px;
+  color: #6b7280;
+  margin: 0;
+}
+
+.mapContainer {
+  width: 100%;
+  border-radius: 16px;
+  overflow: hidden;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+}
+
+.mapPlaceholder {
+  width: 100%;
+  height: 400px;
+  background: linear-gradient(135deg, #e2e8f0 0%, #cbd5e1 100%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+@media (min-width: 768px) {
+  .mapPlaceholder {
+    height: 500px;
+  }
+}
+
+.mapPlaceholderContent {
+  text-align: center;
+}
+
+.mapPlaceholderIcon {
+  width: 64px;
+  height: 64px;
+  color: #94a3b8;
+  margin-bottom: 16px;
+}
+
+.mapPlaceholderText {
+  font-size: 20px;
+  font-weight: 600;
+  color: #64748b;
+  margin: 0 0 8px;
+}
+
+.mapPlaceholderHint {
+  font-size: 14px;
+  color: #94a3b8;
+}
+
+/* ============================================
+   FEATURED SECTION - Horizontal Scroll
+   ============================================ */
+.featuredSection {
+  padding: 80px 0;
+  background: #ffffff;
+  overflow: hidden;
+}
+
+.featuredHeader {
+  max-width: 1200px;
+  margin: 0 auto 40px;
+  padding: 0 20px;
+}
+
+@media (min-width: 768px) {
+  .featuredHeader {
+    padding: 0 40px;
+  }
+}
+
+.featuredTitle {
+  font-size: 32px;
+  font-weight: 800;
+  color: #111827;
+  margin: 0 0 8px;
+}
+
+.featuredSubtitle {
+  font-size: 16px;
+  color: #6b7280;
+  margin: 0;
+}
+
+.horizontalScroll {
+  display: flex;
+  gap: 24px;
+  overflow-x: auto;
+  scroll-snap-type: x mandatory;
+  -webkit-overflow-scrolling: touch;
+  padding: 0 20px 20px;
+  scrollbar-width: none;
+}
+
+.horizontalScroll::-webkit-scrollbar {
+  display: none;
+}
+
+@media (min-width: 768px) {
+  .horizontalScroll {
+    padding: 0 40px 20px;
+  }
+}
+
+.featuredCard {
+  flex: 0 0 300px;
+  scroll-snap-align: start;
+  background: #ffffff;
+  border-radius: 20px;
+  overflow: hidden;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+  transition: all 0.3s ease;
+}
+
+@media (min-width: 768px) {
+  .featuredCard {
+    flex: 0 0 380px;
+  }
+}
+
+.featuredCard:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
+}
+
+.featuredImageWrapper {
+  position: relative;
+  width: 100%;
+  height: 220px;
+  overflow: hidden;
+}
+
+.featuredImage {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.5s ease;
+}
+
+.featuredCard:hover .featuredImage {
+  transform: scale(1.1);
+}
+
+.featuredTag {
+  position: absolute;
+  top: 16px;
+  left: 16px;
+  padding: 6px 14px;
+  background: #111827;
+  color: #ffffff;
+  font-size: 11px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  border-radius: 50px;
+}
+
+.featuredContent {
+  padding: 24px;
+}
+
+.featuredName {
+  font-size: 20px;
+  font-weight: 700;
+  color: #111827;
+  margin: 0 0 8px;
+}
+
+.featuredDescription {
+  font-size: 14px;
+  color: #6b7280;
+  line-height: 1.6;
+  margin: 0 0 16px;
+}
+
+.featuredMeta {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 13px;
+  color: #9ca3af;
+  font-weight: 500;
+}
+
+.featuredMetaIcon {
+  width: 16px;
+  height: 16px;
+}
+
+/* ============================================
+   DISTANCES SECTION - Table with Filters
+   ============================================ */
+.distancesSection {
+  padding: 80px 0;
+  background: #111827;
+}
+
+.distancesHeader {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+  margin-bottom: 40px;
+}
+
+@media (min-width: 768px) {
+  .distancesHeader {
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+  }
+}
+
+.distancesTitle {
+  font-size: 32px;
+  font-weight: 800;
+  color: #ffffff;
+  margin: 0;
+}
+
+.filterTabs {
+  display: flex;
+  gap: 8px;
+  flex-wrap: wrap;
+}
+
+.filterTab {
+  padding: 10px 20px;
+  background: rgba(255, 255, 255, 0.1);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  color: rgba(255, 255, 255, 0.7);
+  font-size: 14px;
+  font-weight: 500;
+  border-radius: 50px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.filterTab:hover {
+  background: rgba(255, 255, 255, 0.15);
+  color: #ffffff;
+}
+
+.filterTabActive {
+  background: #d97706;
+  border-color: #d97706;
+  color: #ffffff;
+}
+
+.distancesList {
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+}
+
+.distanceItem {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  padding: 20px 0;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.distanceItem:last-child {
+  border-bottom: none;
+}
+
+.distanceNumber {
+  font-size: 14px;
+  font-weight: 700;
+  color: #d97706;
+  font-family: monospace;
+  min-width: 28px;
+}
+
+.distanceName {
+  font-size: 16px;
+  font-weight: 500;
+  color: #ffffff;
+}
+
+@media (min-width: 768px) {
+  .distanceName {
+    font-size: 18px;
+  }
+}
+
+.distanceLine {
+  flex: 1;
+  height: 1px;
+  background: linear-gradient(90deg, rgba(255,255,255,0.2) 0%, rgba(255,255,255,0) 100%);
+  margin: 0 8px;
+}
+
+.distanceValue {
+  font-size: 14px;
+  font-weight: 600;
+  color: #9ca3af;
+  min-width: 80px;
+  text-align: right;
+}
+
+/* ============================================
+   CITY SECTION - List Style
+   ============================================ */
+.citySection {
+  padding: 80px 0;
+  background: #ffffff;
+}
+
+@media (min-width: 768px) {
+  .citySection {
+    padding: 120px 0;
+  }
+}
+
+.cityGrid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 40px;
+  align-items: center;
+}
+
+@media (min-width: 968px) {
+  .cityGrid {
+    grid-template-columns: 1fr 1fr;
+    gap: 80px;
+  }
+}
+
+.cityTitle {
+  font-size: 36px;
+  font-weight: 800;
+  color: #111827;
+  margin: 0 0 20px;
+  line-height: 1.1;
+}
+
+@media (min-width: 768px) {
+  .cityTitle {
+    font-size: 48px;
+  }
+}
+
+.cityText {
+  font-size: 17px;
+  color: #4b5563;
+  line-height: 1.8;
+  margin: 0 0 24px;
+}
+
+.cityList {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.cityList li {
+  font-size: 16px;
+  color: #4b5563;
+  padding-left: 24px;
+  position: relative;
+  line-height: 1.6;
+}
+
+.cityList li::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 10px;
+  width: 8px;
+  height: 8px;
+  background: #d97706;
+  border-radius: 50%;
+}
+
+.cityList li strong {
+  color: #111827;
+}
+
+.cityImageStack {
+  position: relative;
+  height: 400px;
+}
+
+@media (min-width: 768px) {
+  .cityImageStack {
+    height: 500px;
+  }
+}
+
+.cityImageMain {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 75%;
+  height: 80%;
+  object-fit: cover;
+  border-radius: 20px;
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
+}
+
+.cityImageSecondary {
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  width: 55%;
+  height: 50%;
+  object-fit: cover;
+  border-radius: 16px;
+  border: 4px solid #ffffff;
+  box-shadow: 0 15px 30px rgba(0, 0, 0, 0.2);
+}
+
+/* ============================================
+   TIPS SECTION - Compact Bar
+   ============================================ */
+.tipsSection {
+  padding: 40px 0;
+  background: #fef3c7;
+}
+
+.tipsWrapper {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  align-items: center;
+}
+
+@media (min-width: 1024px) {
+  .tipsWrapper {
+    flex-direction: row;
+    gap: 40px;
+  }
+}
+
+.tipsTitle {
+  font-size: 18px;
+  font-weight: 700;
+  color: #92400e;
+  margin: 0;
+  white-space: nowrap;
+}
+
+.tipsRow {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 24px;
+  justify-content: center;
+}
+
+@media (min-width: 1024px) {
+  .tipsRow {
+    gap: 40px;
+  }
+}
+
+.tip {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-size: 14px;
+  color: #78350f;
+}
+
+.tip strong {
+  font-weight: 600;
+}
+
+.tipIcon {
+  font-size: 20px;
+}
