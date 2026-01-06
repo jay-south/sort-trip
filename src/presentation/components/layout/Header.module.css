@@ -1,10 +1,20 @@
+/* Header - completely transparent by default, NO background */
 .header {
-  position: sticky;
+  position: fixed;
   top: 0;
+  left: 0;
+  right: 0;
   z-index: 50;
+  background-color: transparent;
+  border-bottom: none;
+  transition: all 0.3s ease;
+}
+
+/* Header with background when scrolled */
+.headerScrolled {
   background-color: rgba(255, 255, 255, 0.9);
-  backdrop-filter: blur(8px);
-  border-bottom: 1px solid #e5e7eb;
+  backdrop-filter: blur(12px);
+  border-bottom: 1px solid rgba(229, 231, 235, 0.3);
 }
 
 .headerContainer {
@@ -41,38 +51,28 @@
 
 .logo {
   display: flex;
-  align-items: baseline;
-  gap: 8px;
+  align-items: center;
   flex-shrink: 0;
 }
 
-.logoText {
-  font-size: 18px;
-  font-weight: 600;
-  color: #111827;
-  letter-spacing: -0.02em;
+/* Logo image - with white filter by default, normal when scrolled */
+.logoImage {
+  height: 48px;
+  width: auto;
+  object-fit: contain;
+  filter: brightness(0) invert(1);
+  transition: filter 0.3s ease;
+}
+
+/* Logo image when scrolled - remove filter to show original colors */
+.headerScrolled .logoImage {
+  filter: none;
 }
 
 @media (max-width: 639px) {
-  .logoText {
-    font-size: 16px;
+  .logoImage {
+    height: 36px;
   }
-  
-  .logoLocation {
-    font-size: 9px;
-  }
-}
-
-.logoAccent {
-  color: #f59e0b;
-}
-
-.logoLocation {
-  font-size: 10px;
-  text-transform: uppercase;
-  letter-spacing: 0.1em;
-  color: #9ca3af;
-  font-weight: 400;
 }
 
 .nav {
@@ -87,21 +87,38 @@
   }
 }
 
+/* Navigation links - white by default, dark when scrolled */
 .navLink {
   padding: 8px 16px;
   border-radius: 6px;
   font-size: 14px;
   font-weight: 400;
-  color: #4b5563;
+  color: rgba(255, 255, 255, 0.9);
   transition: all 0.15s ease;
   white-space: nowrap;
 }
 
 .navLink:hover {
-  color: #111827;
+  color: #ffffff;
+  background-color: rgba(255, 255, 255, 0.1);
 }
 
 .navLinkActive {
+  color: #ffffff;
+  background-color: rgba(255, 255, 255, 0.15);
+}
+
+/* Navigation links when scrolled */
+.headerScrolled .navLink {
+  color: #4b5563;
+}
+
+.headerScrolled .navLink:hover {
+  color: #111827;
+  background-color: #f9fafb;
+}
+
+.headerScrolled .navLinkActive {
   color: #111827;
   background-color: #f9fafb;
 }
@@ -112,10 +129,11 @@
   gap: 0.5rem;
 }
 
+/* Mobile menu button - white by default, dark when scrolled */
 .mobileMenuButton {
   display: flex;
   padding: 8px;
-  color: #4b5563;
+  color: rgba(255, 255, 255, 0.9);
   transition: color 0.15s ease;
 }
 
@@ -126,6 +144,14 @@
 }
 
 .mobileMenuButton:hover {
+  color: #ffffff;
+}
+
+.headerScrolled .mobileMenuButton {
+  color: #4b5563;
+}
+
+.headerScrolled .mobileMenuButton:hover {
   color: #111827;
 }
 
@@ -134,29 +160,40 @@
   height: 20px;
 }
 
-/* Get to Cusco Button - Rounded with orange border */
+/* Get to Cusco Button - white by default, amber when scrolled */
 .getCuscoBtn {
   display: none;
-  padding: 8px 20px;
+  padding: 8px 16px;
   background: transparent;
-  border: 1.5px solid #f59e0b;
-  border-radius: 50px;
-  color: #f59e0b;
+  border: 1.5px solid rgba(255, 255, 255, 0.9);
+  border-radius: 6px;
+  color: rgba(255, 255, 255, 0.9);
   font-size: 13px;
   font-weight: 600;
   cursor: pointer;
   transition: all 0.2s ease;
   white-space: nowrap;
-  margin-left: 12px;
 }
 
-@media (min-width: 1024px) {
+@media (min-width: 768px) {
   .getCuscoBtn {
     display: block;
   }
 }
 
 .getCuscoBtn:hover {
+  background: rgba(255, 255, 255, 0.2);
+  border-color: #ffffff;
+  color: #ffffff;
+}
+
+/* Get to Cusco Button when scrolled */
+.headerScrolled .getCuscoBtn {
+  border-color: #f59e0b;
+  color: #f59e0b;
+}
+
+.headerScrolled .getCuscoBtn:hover {
   background: #f59e0b;
   color: #ffffff;
 }

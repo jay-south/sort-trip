@@ -50,7 +50,7 @@ export const HomePage = () => {
       <Hero
         title="Discover Cuzco"
         subtitle="Experience the heart of the Inca Empire. From ancient ruins to vibrant culture, your adventure starts here."
-        backgroundImage="https://images.unsplash.com/photo-1587595431973-160d0d94add1?w=1920&q=80"
+        backgroundImage="/hero-home.jpg"
       />
 
       {/* Categories Grid */}

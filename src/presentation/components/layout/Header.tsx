@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { Link, useLocation } from 'react-router-dom';
 import { useNavigationStore } from '../../../store';
 import { UserMenu } from '../ui';
@@ -9,18 +9,30 @@ export const Header = () => {
   const location = useLocation();
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [activeTab, setActiveTab] = useState<'flights' | 'weather' | 'machu'>('flights');
+  const [isScrolled, setIsScrolled] = useState(false);
+
+  // Detect scroll to add background
+  useEffect(() => {
+    const handleScroll = () => {
+      setIsScrolled(window.scrollY > 50);
+    };
+
+    window.addEventListener('scroll', handleScroll);
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, []);
 
   return (
     <>
-      <header className={styles.header}>
+      <header className={`${styles.header} ${isScrolled ? styles.headerScrolled : ''}`}>
         <div className={styles.headerContainer}>
           <div className={styles.headerInner}>
             {/* Logo */}
             <Link to="/" className={styles.logo}>
-              <span className={styles.logoText}>
-                Sort<span className={styles.logoAccent}>Trip</span>
-              </span>
-              <span className={styles.logoLocation}>Cuzco</span>
+              <img 
+                src="/logos/logo.svg" 
+                alt="SortTrip Cuzco" 
+                className={styles.logoImage}
+              />
             </Link>
 
           {/* Navigation */}
@@ -49,7 +61,7 @@ export const Header = () => {
 
           {/* User Menu & Mobile menu */}
           <div className={styles.headerActions}>
-            <UserMenu />
+            <UserMenu isScrolled={isScrolled} />
               
               {/* Mobile menu button */}
               <button className={styles.mobileMenuButton}>
