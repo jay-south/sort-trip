@@ -42,17 +42,17 @@ const featuredDestinations = [
 const allDestinations = [
   { name: 'Plaza de Armas & Centro Historico', distance: 'City Center', category: 'city' },
   { name: 'Mercado Central de San Pedro', distance: 'City Center', category: 'city' },
-  { name: 'Coricancha - Templo Dorado', distance: '1.7 km', category: 'city' },
+  { name: 'Coricancha - Templo Dorado de los Incas', distance: '1.7 km', category: 'city', note: 'From Plaza de Armas' },
   { name: 'Sacsayhuaman & Q\'enco', distance: '4 km', category: 'nearby' },
-  { name: 'Puka Pukara', distance: '8.2 km', category: 'nearby' },
+  { name: 'Puka Pukara Archaeological Site', distance: '8.2 km', category: 'nearby' },
   { name: 'Tambomachay', distance: '11 km', category: 'nearby' },
   { name: 'Chinchero', distance: '30.2 km', category: 'sacred-valley' },
-  { name: 'Maras Salt Mines', distance: '51 km', category: 'sacred-valley' },
+  { name: 'Minas de Sal de Maras', distance: '51 km', category: 'sacred-valley' },
   { name: 'Ollantaytambo', distance: '61 km', category: 'sacred-valley' },
-  { name: 'Rainbow Mountain (Vinicunca)', distance: '100 km', category: 'day-trip' },
+  { name: 'Montaña Arcoiris de 7 Colores (Rainbow Mountain)', distance: '100 km', category: 'day-trip' },
   { name: 'Laguna Humantay', distance: '120 km', category: 'day-trip' },
   { name: 'Choquequirao', distance: '175 km', category: 'adventure' },
-  { name: 'Machu Picchu', distance: '210 km', category: 'day-trip' },
+  { name: 'Machu Picchu', distance: '210 km', category: 'day-trip', note: 'Via Ollantaytambo → Aguas Calientes' },
 ];
 
 export const TravelAroundPage = () => {
@@ -69,6 +69,229 @@ export const TravelAroundPage = () => {
         subtitle="Explore the wonders of Cusco and its magical surroundings"
         backgroundImage="https://images.unsplash.com/photo-1526392060635-9d6019884377?w=1920&q=80"
       />
+
+      {/* Cusco City Section */}
+      <section className={styles.infoSection}>
+        <div className={styles.container}>
+          <div className={styles.infoHeader}>
+            <span className={styles.eyebrow}>Start Here</span>
+            <h2 className={styles.infoTitle}>Cusco City</h2>
+          </div>
+          <div className={styles.infoGrid}>
+            <div className={styles.infoCard}>
+              <div 
+                className={styles.infoCardImage}
+                style={{ backgroundImage: 'url(https://images.unsplash.com/photo-1526392060635-9d6019884377?w=800&q=80&fit=crop)' }}
+              >
+                <div className={styles.infoCardOverlay} />
+                <div className={styles.infoCardContent}>
+                  <h3 className={styles.infoCardTitle}>Plaza de Armas</h3>
+                  <p className={styles.infoCardText}>The main square, surrounded by colonial arcades and historic buildings</p>
+                </div>
+              </div>
+            </div>
+            <div className={styles.infoCard}>
+              <div 
+                className={styles.infoCardImage}
+                style={{ backgroundImage: 'url(https://images.unsplash.com/photo-1559827260-dc66d52bef19?w=800&q=80&fit=crop)' }}
+              >
+                <div className={styles.infoCardOverlay} />
+                <div className={styles.infoCardContent}>
+                  <h3 className={styles.infoCardTitle}>Mercado Central de San Pedro</h3>
+                  <p className={styles.infoCardText}>Vibrant market with local food, crafts, and authentic Peruvian culture</p>
+                </div>
+              </div>
+            </div>
+            <div className={styles.infoCard}>
+              <div 
+                className={styles.infoCardImage}
+                style={{ backgroundImage: 'url(https://images.unsplash.com/photo-1580974852861-c381510bc98a?w=800&q=80&fit=crop)' }}
+              >
+                <div className={styles.infoCardOverlay} />
+                <div className={styles.infoCardContent}>
+                  <h3 className={styles.infoCardTitle}>Centro Histórico</h3>
+                  <p className={styles.infoCardText}>Cobblestone streets with Inca walls and colonial architecture</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Museums Section - Minimal Editorial Design */}
+      <section className={styles.museumsSection}>
+        <div className={styles.container}>
+          <div className={styles.museumsLayout}>
+            {/* Left Column - Main Content */}
+            <div className={styles.museumsMain}>
+              <span className={styles.museumsEyebrow}>Culture</span>
+              <h2 className={styles.museumsTitle}>Museums</h2>
+              <p className={styles.museumsIntro}>
+                Cusco's museums offer a window into Peru's rich past — from Inca artifacts 
+                to colonial art and contemporary expressions.
+              </p>
+
+              {/* Museums List */}
+              <div className={styles.museumsList}>
+                <div className={styles.museumsListItem}>
+                  <span className={styles.museumsListNumber}>01</span>
+                  <div className={styles.museumsListContent}>
+                    <h4>Inca Museum</h4>
+                    <p>The most comprehensive collection of Inca artifacts</p>
+                    <span className={styles.museumsListTag}>History</span>
+                  </div>
+                </div>
+
+                <div className={styles.museumsListItem}>
+                  <span className={styles.museumsListNumber}>02</span>
+                  <div className={styles.museumsListContent}>
+                    <h4>Museum of Pre-Columbian Art</h4>
+                    <p>Ancient treasures in a stunning colonial building</p>
+                  </div>
+                </div>
+
+                <div className={styles.museumsListItem}>
+                  <span className={styles.museumsListNumber}>03</span>
+                  <div className={styles.museumsListContent}>
+                    <h4>Popular Art Museum</h4>
+                    <p>Traditional Andean folk art and crafts</p>
+                    <span className={styles.museumsListTag}>Art</span>
+                  </div>
+                </div>
+
+                <div className={styles.museumsListItem}>
+                  <span className={styles.museumsListNumber}>04</span>
+                  <div className={styles.museumsListContent}>
+                    <h4>Contemporary Art Museum</h4>
+                    <p>Modern Peruvian artistic expressions</p>
+                  </div>
+                </div>
+
+                <div className={styles.museumsListItem}>
+                  <span className={styles.museumsListNumber}>05</span>
+                  <div className={styles.museumsListContent}>
+                    <h4>Planetarium Cusco</h4>
+                    <p>Night shows about Inca astronomy</p>
+                    <span className={styles.museumsListTag}>Evening</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            {/* Right Column - Featured + Extras */}
+            <div className={styles.museumsSidebar}>
+              <div className={styles.museumsFeaturedImage}>
+                <img src="https://images.unsplash.com/photo-1582034438067-3564c6c38c96?w=600&h=800&fit=crop&q=80" alt="Museum in Cusco" />
+              </div>
+
+              <div className={styles.museumsExtras}>
+                <h4>Also worth a visit</h4>
+                <div className={styles.museumsExtraItem}>
+                  <span className={styles.museumsExtraName}>ChocoMuseo Cusco</span>
+                  <span className={styles.museumsExtraDesc}>Chocolate workshops — great for families</span>
+                </div>
+                <div className={styles.museumsExtraItem}>
+                  <span className={styles.museumsExtraName}>Museum Maximo Laura</span>
+                  <span className={styles.museumsExtraDesc}>Master weaver's gallery</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* To Visit Around Cusco - Image Gallery */}
+      <section className={styles.visitAroundSection}>
+        <div className={styles.container}>
+          <div className={styles.infoHeader}>
+            <span className={styles.eyebrow}>Natural Wonders</span>
+            <h2 className={styles.infoTitle}>To Visit Around Cusco</h2>
+          </div>
+          <div className={styles.visitAroundGrid}>
+            <div className={styles.visitAroundCard}>
+              <img 
+                src="https://images.unsplash.com/photo-1580619305218-8423a7ef79b4?w=800&q=80" 
+                alt="Rainbow Mountain"
+                className={styles.visitAroundImage}
+              />
+              <div className={styles.visitAroundOverlay}>
+                <h3 className={styles.visitAroundName}>Montaña Arcoiris de 7 Colores</h3>
+                <p className={styles.visitAroundDistance}>100 km from Cusco</p>
+              </div>
+            </div>
+            <div className={styles.visitAroundCard}>
+              <img 
+                src="https://images.unsplash.com/photo-1501785888041-af3ef285b470?w=800&q=80" 
+                alt="Laguna Humantay"
+                className={styles.visitAroundImage}
+              />
+              <div className={styles.visitAroundOverlay}>
+                <h3 className={styles.visitAroundName}>Laguna Humantay</h3>
+                <p className={styles.visitAroundDistance}>120 km from Cusco</p>
+              </div>
+            </div>
+            <div className={styles.visitAroundCard}>
+              <img 
+                src="https://images.unsplash.com/photo-1578662996442-48f60103fc96?w=800&q=80" 
+                alt="Alpacas"
+                className={styles.visitAroundImage}
+              />
+              <div className={styles.visitAroundOverlay}>
+                <h3 className={styles.visitAroundName}>Alpaca Farms</h3>
+                <p className={styles.visitAroundDistance}>Sacred Valley</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Alpaca Farms Section */}
+      <section className={styles.alpacaSection}>
+        <div className={styles.container}>
+          <div className={styles.alpacaGrid}>
+            <div className={styles.alpacaContent}>
+              <span className={styles.eyebrow}>Relaxing Activity</span>
+              <h2 className={styles.infoTitle}>Visit Alpaca Farms</h2>
+              <p className={styles.alpacaText}>
+                Visiting alpaca farms is one of the most relaxing activities you can do while acclimatizing to the altitude in Cusco. 
+                The largest alpaca farms are located in the Sacred Valley.
+              </p>
+              <div className={styles.alpacaFarmsList}>
+                <div className={styles.alpacaFarmItem}>
+                  <svg className={styles.alpacaFarmIcon} fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
+                  </svg>
+                  <span>Awanacancha alpaca farm</span>
+                </div>
+                <div className={styles.alpacaFarmItem}>
+                  <svg className={styles.alpacaFarmIcon} fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
+                  </svg>
+                  <span>Chinchero alpaca farm</span>
+                </div>
+                <div className={styles.alpacaFarmItem}>
+                  <svg className={styles.alpacaFarmIcon} fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
+                  </svg>
+                  <span>Community hands</span>
+                </div>
+                <div className={styles.alpacaFarmItem}>
+                  <svg className={styles.alpacaFarmIcon} fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
+                  </svg>
+                  <span>Sullca</span>
+                </div>
+              </div>
+            </div>
+            <div className={styles.alpacaImage}>
+              <img 
+                src="https://images.unsplash.com/photo-1578662996442-48f60103fc96?w=800&q=80" 
+                alt="Alpacas in Cusco"
+              />
+            </div>
+          </div>
+        </div>
+      </section>
 
       {/* Get to Cusco - Editorial Style */}
       <section className={styles.editorialSection}>
@@ -191,7 +414,10 @@ export const TravelAroundPage = () => {
             {filteredDestinations.map((dest, index) => (
               <div key={dest.name} className={styles.distanceItem}>
                 <span className={styles.distanceNumber}>{String(index + 1).padStart(2, '0')}</span>
-                <span className={styles.distanceName}>{dest.name}</span>
+                <div className={styles.distanceNameWrapper}>
+                  <span className={styles.distanceName}>{dest.name}</span>
+                  {dest.note && <span className={styles.distanceNote}>{dest.note}</span>}
+                </div>
                 <span className={styles.distanceLine} />
                 <span className={styles.distanceValue}>{dest.distance}</span>
               </div>
@@ -200,47 +426,6 @@ export const TravelAroundPage = () => {
         </div>
       </section>
 
-      {/* Cusco City - Simple List Style */}
-      <section className={styles.citySection}>
-        <div className={styles.container}>
-          <div className={styles.cityGrid}>
-            <div className={styles.cityContent}>
-              <span className={styles.eyebrow}>Start Here</span>
-              <h2 className={styles.cityTitle}>Cusco City</h2>
-              <p className={styles.cityText}>
-                Begin your adventure in the historic heart of the Inca Empire. The city itself is a 
-                living museum with UNESCO World Heritage status.
-              </p>
-              <ul className={styles.cityList}>
-                <li>
-                  <strong>Plaza de Armas</strong> — The main square, surrounded by colonial arcades
-                </li>
-                <li>
-                  <strong>Mercado San Pedro</strong> — Vibrant market with local food and crafts
-                </li>
-                <li>
-                  <strong>Centro Historico</strong> — Cobblestone streets with Inca walls
-                </li>
-                <li>
-                  <strong>Coricancha</strong> — The golden temple of the Incas (1.7 km)
-                </li>
-              </ul>
-            </div>
-            <div className={styles.cityImageStack}>
-              <img 
-                src="https://images.unsplash.com/photo-1526392060635-9d6019884377?w=600&q=80" 
-                alt="Plaza de Armas"
-                className={styles.cityImageMain}
-              />
-              <img 
-                src="https://images.unsplash.com/photo-1580974852861-c381510bc98a?w=400&q=80" 
-                alt="Cusco streets"
-                className={styles.cityImageSecondary}
-              />
-            </div>
-          </div>
-        </div>
-      </section>
 
       {/* Travel Tips - Compact */}
       <section className={styles.tipsSection}>

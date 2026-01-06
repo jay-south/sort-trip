@@ -65,11 +65,11 @@
 .eyebrow {
   display: inline-block;
   font-size: 12px;
-  font-weight: 700;
+  font-weight: 500;
   text-transform: uppercase;
-  letter-spacing: 2px;
-  color: #d97706;
-  margin-bottom: 16px;
+  letter-spacing: 1.2px;
+  color: #717171;
+  margin-bottom: 12px;
 }
 
 .editorialTitle {
@@ -664,4 +664,572 @@
 
 .tipIcon {
   font-size: 20px;
+}
+
+/* ============================================
+   INFO SECTION - Cusco City
+   ============================================ */
+.infoSection {
+  padding: 96px 0;
+  background: #ffffff;
+}
+
+.infoHeader {
+  text-align: center;
+  margin-bottom: 48px;
+}
+
+.infoTitle {
+  font-size: 28px;
+  font-weight: 600;
+  color: #222222;
+  margin: 8px 0 0;
+  line-height: 1.3;
+  letter-spacing: -0.02em;
+}
+
+@media (min-width: 768px) {
+  .infoTitle {
+    font-size: 34px;
+  }
+}
+
+@media (min-width: 1024px) {
+  .infoTitle {
+    font-size: 40px;
+  }
+}
+
+.infoSubtitle {
+  font-size: 17px;
+  color: #717171;
+  margin: 16px 0 0;
+  max-width: 600px;
+  margin-left: auto;
+  margin-right: auto;
+  font-weight: 400;
+  line-height: 1.5;
+}
+
+.infoGrid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 24px;
+}
+
+@media (min-width: 640px) {
+  .infoGrid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 32px;
+  }
+}
+
+@media (min-width: 1024px) {
+  .infoGrid {
+    grid-template-columns: repeat(3, 1fr);
+    gap: 40px;
+  }
+}
+
+.infoCard {
+  background: #ffffff;
+  border-radius: 12px;
+  overflow: hidden;
+  transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+  cursor: pointer;
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.04), 0 0 0 1px rgba(0, 0, 0, 0.04);
+  aspect-ratio: 4 / 3;
+}
+
+.infoCard:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.08), 0 0 0 1px rgba(0, 0, 0, 0.04);
+}
+
+.infoCardImage {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  display: flex;
+  align-items: flex-end;
+}
+
+.infoCardOverlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    to top,
+    rgba(0, 0, 0, 0.75) 0%,
+    rgba(0, 0, 0, 0.5) 50%,
+    rgba(0, 0, 0, 0.2) 100%
+  );
+  transition: opacity 0.3s ease;
+}
+
+.infoCard:hover .infoCardOverlay {
+  background: linear-gradient(
+    to top,
+    rgba(0, 0, 0, 0.85) 0%,
+    rgba(0, 0, 0, 0.6) 50%,
+    rgba(0, 0, 0, 0.3) 100%
+  );
+}
+
+.infoCardContent {
+  position: relative;
+  z-index: 10;
+  padding: 32px 28px;
+  text-align: left;
+  width: 100%;
+}
+
+@media (min-width: 640px) {
+  .infoCardContent {
+    padding: 36px 32px;
+  }
+}
+
+.infoCardIcon {
+  width: 48px;
+  height: 48px;
+  background: rgba(255, 255, 255, 0.2);
+  backdrop-filter: blur(10px);
+  border-radius: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 0 20px;
+  color: #ffffff;
+  transition: all 0.2s ease;
+  border: 1px solid rgba(255, 255, 255, 0.3);
+}
+
+.infoCard:hover .infoCardIcon {
+  transform: scale(1.05);
+  background: rgba(255, 255, 255, 0.25);
+}
+
+.infoCardIcon svg {
+  width: 24px;
+  height: 24px;
+}
+
+.infoCardTitle {
+  font-size: 20px;
+  font-weight: 600;
+  color: #ffffff;
+  margin: 0 0 8px;
+  letter-spacing: -0.01em;
+  line-height: 1.3;
+}
+
+@media (min-width: 640px) {
+  .infoCardTitle {
+    font-size: 22px;
+  }
+}
+
+.infoCardText {
+  font-size: 14px;
+  color: rgba(255, 255, 255, 0.95);
+  line-height: 1.5;
+  margin: 0;
+  font-weight: 400;
+}
+
+@media (min-width: 640px) {
+  .infoCardText {
+    font-size: 15px;
+  }
+}
+
+/* ============================================
+   MUSEUMS SECTION - Minimal Editorial Design
+   ============================================ */
+.museumsSection {
+  padding: 100px 0;
+  background: #ffffff;
+}
+
+.museumsLayout {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 48px;
+}
+
+@media (min-width: 1024px) {
+  .museumsLayout {
+    grid-template-columns: 1fr 380px;
+    gap: 80px;
+  }
+}
+
+/* Main Content */
+.museumsMain {
+  max-width: 600px;
+}
+
+.museumsEyebrow {
+  display: block;
+  font-size: 11px;
+  font-weight: 500;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  color: #9ca3af;
+  margin-bottom: 12px;
+}
+
+.museumsTitle {
+  font-size: 42px;
+  font-weight: 300;
+  color: #111827;
+  margin: 0 0 24px;
+  letter-spacing: -0.03em;
+  line-height: 1;
+}
+
+@media (min-width: 768px) {
+  .museumsTitle {
+    font-size: 56px;
+  }
+}
+
+.museumsIntro {
+  font-size: 17px;
+  color: #6b7280;
+  line-height: 1.8;
+  margin: 0 0 48px;
+  max-width: 480px;
+}
+
+/* Museums List */
+.museumsList {
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+}
+
+.museumsListItem {
+  display: flex;
+  gap: 24px;
+  padding: 24px 0;
+  border-bottom: 1px solid #f3f4f6;
+  transition: all 0.2s ease;
+}
+
+.museumsListItem:first-child {
+  padding-top: 0;
+}
+
+.museumsListItem:last-child {
+  border-bottom: none;
+}
+
+.museumsListItem:hover {
+  padding-left: 8px;
+}
+
+.museumsListNumber {
+  font-size: 12px;
+  font-weight: 500;
+  color: #d1d5db;
+  min-width: 24px;
+  padding-top: 4px;
+}
+
+.museumsListContent {
+  flex: 1;
+}
+
+.museumsListContent h4 {
+  font-size: 18px;
+  font-weight: 600;
+  color: #111827;
+  margin: 0 0 6px;
+  letter-spacing: -0.01em;
+}
+
+.museumsListContent p {
+  font-size: 14px;
+  color: #9ca3af;
+  margin: 0;
+  line-height: 1.5;
+}
+
+.museumsListTag {
+  display: inline-block;
+  margin-top: 10px;
+  padding: 4px 10px;
+  background: #f9fafb;
+  border: 1px solid #e5e7eb;
+  border-radius: 4px;
+  font-size: 11px;
+  font-weight: 500;
+  color: #6b7280;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+/* Sidebar */
+.museumsSidebar {
+  display: flex;
+  flex-direction: column;
+  gap: 32px;
+}
+
+.museumsFeaturedImage {
+  border-radius: 4px;
+  overflow: hidden;
+  aspect-ratio: 3 / 4;
+}
+
+.museumsFeaturedImage img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  filter: grayscale(20%);
+  transition: filter 0.3s ease;
+}
+
+.museumsFeaturedImage:hover img {
+  filter: grayscale(0%);
+}
+
+/* Extras */
+.museumsExtras {
+  padding: 24px;
+  background: #fafafa;
+  border-radius: 4px;
+}
+
+.museumsExtras h4 {
+  font-size: 12px;
+  font-weight: 500;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  color: #9ca3af;
+  margin: 0 0 20px;
+}
+
+.museumsExtraItem {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  padding: 16px 0;
+  border-bottom: 1px solid #e5e7eb;
+}
+
+.museumsExtraItem:last-child {
+  border-bottom: none;
+  padding-bottom: 0;
+}
+
+.museumsExtraName {
+  font-size: 15px;
+  font-weight: 600;
+  color: #111827;
+}
+
+.museumsExtraDesc {
+  font-size: 13px;
+  color: #9ca3af;
+}
+
+/* ============================================
+   VISIT AROUND SECTION - Image Gallery
+   ============================================ */
+.visitAroundSection {
+  padding: 96px 0;
+  background: #fafafa;
+}
+
+.visitAroundGrid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 20px;
+}
+
+@media (min-width: 768px) {
+  .visitAroundGrid {
+    grid-template-columns: repeat(3, 1fr);
+    gap: 24px;
+  }
+}
+
+.visitAroundCard {
+  position: relative;
+  border-radius: 12px;
+  overflow: hidden;
+  aspect-ratio: 4 / 3;
+  cursor: pointer;
+  background: #ffffff;
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.04);
+  transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.visitAroundCard:hover {
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.12);
+  transform: translateY(-2px);
+}
+
+.visitAroundImage {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.visitAroundCard:hover .visitAroundImage {
+  transform: scale(1.05);
+}
+
+.visitAroundOverlay {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background: linear-gradient(to top, rgba(0, 0, 0, 0.7) 0%, rgba(0, 0, 0, 0.3) 50%, transparent 100%);
+  padding: 40px 24px 24px;
+  color: #ffffff;
+}
+
+.visitAroundName {
+  font-size: 18px;
+  font-weight: 600;
+  color: #ffffff;
+  margin: 0 0 6px;
+  letter-spacing: -0.01em;
+  line-height: 1.3;
+}
+
+.visitAroundDistance {
+  font-size: 13px;
+  color: rgba(255, 255, 255, 0.95);
+  margin: 0;
+  font-weight: 400;
+}
+
+/* ============================================
+   ALPACA FARMS SECTION
+   ============================================ */
+.alpacaSection {
+  padding: 96px 0;
+  background: #ffffff;
+}
+
+.alpacaGrid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 48px;
+  align-items: center;
+}
+
+@media (min-width: 968px) {
+  .alpacaGrid {
+    grid-template-columns: 1fr 1fr;
+    gap: 80px;
+  }
+}
+
+.alpacaContent {
+  order: 2;
+}
+
+@media (min-width: 968px) {
+  .alpacaContent {
+    order: 1;
+  }
+}
+
+.alpacaText {
+  font-size: 16px;
+  color: #717171;
+  line-height: 1.6;
+  margin: 20px 0 32px;
+  font-weight: 400;
+}
+
+.alpacaFarmsList {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.alpacaFarmItem {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  font-size: 15px;
+  color: #1a1a1a;
+  padding: 16px 20px;
+  background: #fafafa;
+  border-radius: 10px;
+  transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+  border: 1px solid transparent;
+  font-weight: 400;
+}
+
+.alpacaFarmItem:hover {
+  background: #ffffff;
+  border-color: #e5e7eb;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.06);
+  transform: translateX(2px);
+}
+
+.alpacaFarmIcon {
+  width: 18px;
+  height: 18px;
+  color: #d97706;
+  flex-shrink: 0;
+}
+
+.alpacaImage {
+  order: 1;
+  position: relative;
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.1);
+}
+
+@media (min-width: 968px) {
+  .alpacaImage {
+    order: 2;
+  }
+}
+
+.alpacaImage img {
+  width: 100%;
+  height: 400px;
+  object-fit: cover;
+  display: block;
+  transition: transform 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.alpacaImage:hover img {
+  transform: scale(1.03);
+}
+
+@media (min-width: 768px) {
+  .alpacaImage img {
+    height: 500px;
+  }
+}
+
+/* ============================================
+   DISTANCE ITEM UPDATES
+   ============================================ */
+.distanceNameWrapper {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  flex: 1;
+}
+
+.distanceNote {
+  font-size: 13px;
+  color: rgba(255, 255, 255, 0.6);
+  font-weight: 400;
 }

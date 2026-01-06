@@ -1,6 +1,7 @@
 import { createBrowserRouter } from 'react-router-dom';
 import { MainLayout } from '../presentation/components/layout';
 import { HomePage, CategoryPage, ProfilePage, TravelAroundPage } from '../presentation/pages';
+import { StaysPage } from '../presentation/pages/StaysPage';
 
 export const router = createBrowserRouter([
   {
@@ -17,7 +18,7 @@ export const router = createBrowserRouter([
       },
       {
         path: 'stays',
-        element: <CategoryPage />,
+        element: <StaysPage />,
       },
       {
         path: 'transportation',

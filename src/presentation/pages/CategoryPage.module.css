@@ -5,6 +5,8 @@
 .section {
   width: 100%;
   padding: 48px 0;
+  /* Allow overflow so modals can show */
+  overflow: visible;
 }
 
 @media (min-width: 768px) {
@@ -73,3 +75,2654 @@
   font-size: 14px;
 }
 
+/* Map section for Eat & Drink */
+.mapSection {
+  width: 100%;
+  padding: 48px 0;
+  background-color: #f9fafb;
+  border-top: 1px solid #e5e7eb;
+  border-bottom: 1px solid #e5e7eb;
+}
+
+@media (min-width: 768px) {
+  .mapSection {
+    padding: 64px 0;
+  }
+}
+
+.mapContainer {
+  width: 100%;
+  margin-top: 24px;
+  border-radius: 12px;
+  /* Allow overflow for modals but clip the blog area */
+  overflow: visible;
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+  background-color: #fff;
+  position: relative;
+  /* Reduced height for smaller display */
+  min-height: 600px;
+  /* Clip only the left side where blog is, allow modals to show */
+  clip-path: inset(0 0 0 10%);
+}
+
+/* Inner wrapper that contains the iframe */
+.mapInner {
+  position: relative;
+  width: 100%;
+  /* Reduced min-height */
+  min-height: 600px;
+  /* Allow overflow so modals can show outside */
+  overflow: visible;
+  /* Add border radius to inner element for visual rounding */
+  border-radius: 12px;
+}
+
+.mapIframe {
+  /* Make iframe wider to account for blog section on the left */
+  width: 200%;
+  /* Reduced height - still enough for modals */
+  height: 600px;
+  border: none;
+  display: block;
+  background-color: #f3f4f6;
+  /* Shift iframe left to position map correctly */
+  /* Using -40% and clip-path will handle the rest */
+  transform: translateX(-40%);
+  /* Ensure smooth rendering */
+  will-change: transform;
+  position: relative;
+  z-index: 1;
+}
+
+/* Mask overlay to hide ONLY the blog section on the left */
+/* Using clip-path on container, so overlay is minimal backup */
+.blogOverlay {
+  display: none; /* Disabled - using clip-path instead */
+}
+
+@media (min-width: 768px) {
+  .mapIframe {
+    height: 700px;
+  }
+  
+  .mapContainer {
+    min-height: 700px;
+  }
+  
+  .mapInner {
+    min-height: 700px;
+  }
+  
+  .blogOverlay {
+    width: 1%; /* Very minimal mask width */
+    height: 100%; /* Full height to cover blog edge */
+  }
+}
+
+@media (min-width: 1024px) {
+  .mapIframe {
+    height: 800px;
+  }
+  
+  .mapContainer {
+    min-height: 800px;
+  }
+  
+  .mapInner {
+    min-height: 800px;
+  }
+  
+  .blogOverlay {
+    width: 1%; /* Very minimal mask width */
+    height: 100%; /* Full height to cover blog edge */
+  }
+}
+
+/* Ensure the iframe wrapper maintains proper overflow */
+.mapContainer iframe {
+  pointer-events: auto;
+}
+
+.mapFallback {
+  position: absolute;
+  bottom: 16px;
+  right: 16px;
+  z-index: 10;
+}
+
+.mapLink {
+  display: inline-block;
+  padding: 12px 24px;
+  background-color: #3b82f6;
+  color: #fff;
+  text-decoration: none;
+  border-radius: 8px;
+  font-size: 14px;
+  font-weight: 500;
+  transition: background-color 0.2s ease;
+}
+
+.mapLink:hover {
+  background-color: #2563eb;
+}
+
+.mapLink:active {
+  background-color: #1d4ed8;
+}
+
+/* Stays Page Card Styles */
+.card {
+  background: #ffffff;
+  border-radius: 12px;
+  overflow: hidden;
+  border: 1px solid #ebebeb;
+  transition: all 0.2s ease;
+  cursor: pointer;
+}
+
+.card:hover {
+  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.12);
+  transform: translateY(-2px);
+}
+
+.cardImageWrapper {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 16 / 9;
+  overflow: hidden;
+}
+
+.cardImage {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.3s ease;
+}
+
+.card:hover .cardImage {
+  transform: scale(1.05);
+}
+
+.cardRating {
+  position: absolute;
+  top: 12px;
+  right: 12px;
+  background: rgba(255, 255, 255, 0.95);
+  backdrop-filter: blur(10px);
+  padding: 6px 10px;
+  border-radius: 8px;
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  font-size: 14px;
+  font-weight: 600;
+  color: #222222;
+}
+
+.cardRating span:first-child {
+  color: #d97706;
+}
+
+.cardContent {
+  padding: 20px;
+}
+
+.cardTitle {
+  font-size: 18px;
+  font-weight: 600;
+  color: #222222;
+  margin: 0 0 8px;
+  letter-spacing: -0.01em;
+  line-height: 1.3;
+}
+
+.cardLocation {
+  font-size: 14px;
+  color: #717171;
+  margin: 0 0 12px;
+}
+
+.cardDescription {
+  font-size: 14px;
+  color: #4b5563;
+  line-height: 1.5;
+  margin: 0 0 16px;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+.cardFooter {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding-top: 16px;
+  border-top: 1px solid #ebebeb;
+}
+
+.cardPrice {
+  display: flex;
+  flex-direction: column;
+}
+
+.cardPriceAmount {
+  font-size: 20px;
+  font-weight: 600;
+  color: #222222;
+  line-height: 1.2;
+}
+
+.cardPriceLabel {
+  font-size: 12px;
+  color: #717171;
+  margin-top: 2px;
+}
+
+.cardButton {
+  padding: 10px 20px;
+  background: #222222;
+  color: #ffffff;
+  text-decoration: none;
+  border-radius: 8px;
+  font-size: 14px;
+  font-weight: 500;
+  transition: background-color 0.2s ease;
+}
+
+.cardButton:hover {
+  background: #000000;
+}
+
+/* Tour Platforms Section */
+.tourPlatformsGrid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 24px;
+  margin-top: 40px;
+}
+
+@media (min-width: 640px) {
+  .tourPlatformsGrid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 28px;
+  }
+}
+
+@media (min-width: 1024px) {
+  .tourPlatformsGrid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+/* Hero Style Cards (Full Background Image) */
+.tourPlatformCardHero {
+  position: relative;
+  border-radius: 16px;
+  overflow: hidden;
+  min-height: 320px;
+  text-decoration: none;
+  color: #ffffff;
+  display: flex;
+  flex-direction: column;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  cursor: pointer;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  background: #1f2937;
+}
+
+.tourPlatformHeroBgImage {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  z-index: 0;
+}
+
+.tourPlatformCardHero:hover {
+  transform: translateY(-4px) scale(1.02);
+  box-shadow: 0 12px 24px rgba(0, 0, 0, 0.2);
+}
+
+.tourPlatformCardHero.tourPlatformCardHighlight {
+  border: 3px solid #34d399;
+  box-shadow: 0 8px 24px rgba(52, 211, 153, 0.3);
+}
+
+.tourPlatformCardHero.tourPlatformCardHighlight:hover {
+  box-shadow: 0 12px 32px rgba(52, 211, 153, 0.4);
+}
+
+.tourPlatformHeroOverlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(to bottom, rgba(0, 0, 0, 0.3) 0%, rgba(0, 0, 0, 0.7) 100%);
+  transition: background 0.3s ease;
+}
+
+.tourPlatformCardHero:hover .tourPlatformHeroOverlay {
+  background: linear-gradient(to bottom, rgba(0, 0, 0, 0.2) 0%, rgba(0, 0, 0, 0.8) 100%);
+}
+
+.tourPlatformHeroContent {
+  position: relative;
+  z-index: 1;
+  padding: 32px;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  flex: 1;
+  min-height: 320px;
+}
+
+.tourPlatformBadge {
+  display: inline-block;
+  padding: 6px 14px;
+  background: rgba(255, 255, 255, 0.2);
+  backdrop-filter: blur(10px);
+  border-radius: 20px;
+  font-size: 12px;
+  font-weight: 600;
+  color: #ffffff;
+  margin-bottom: 20px;
+  align-self: flex-start;
+  border: 1px solid rgba(255, 255, 255, 0.3);
+}
+
+.tourPlatformHeroLogo {
+  width: 100px;
+  height: 100px;
+  margin-bottom: 20px;
+  background: rgba(255, 255, 255, 0.15);
+  backdrop-filter: blur(10px);
+  border-radius: 16px;
+  padding: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.tourPlatformHeroLogo img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  filter: brightness(0) invert(1);
+}
+
+.tourPlatformHeroName {
+  font-size: 28px;
+  font-weight: 700;
+  color: #ffffff;
+  margin: 0 0 12px;
+  letter-spacing: -0.03em;
+  line-height: 1.2;
+  text-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
+}
+
+.tourPlatformHeroDescription {
+  font-size: 15px;
+  color: rgba(255, 255, 255, 0.95);
+  line-height: 1.6;
+  margin: 0 0 20px;
+  text-shadow: 0 1px 4px rgba(0, 0, 0, 0.3);
+}
+
+.tourPlatformHeroLink {
+  font-size: 15px;
+  font-weight: 600;
+  color: #ffffff;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 12px 24px;
+  background: rgba(255, 255, 255, 0.2);
+  backdrop-filter: blur(10px);
+  border-radius: 10px;
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  transition: all 0.2s ease;
+  align-self: flex-start;
+}
+
+.tourPlatformCardHero:hover .tourPlatformHeroLink {
+  background: rgba(255, 255, 255, 0.3);
+  transform: translateX(4px);
+}
+
+/* Image Style Cards (Image on Top) */
+.tourPlatformCardImage {
+  background: #ffffff;
+  border-radius: 16px;
+  overflow: hidden;
+  border: 1px solid #ebebeb;
+  text-decoration: none;
+  color: inherit;
+  display: flex;
+  flex-direction: column;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  cursor: pointer;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.06);
+}
+
+.tourPlatformCardImage:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 12px 24px rgba(0, 0, 0, 0.12);
+  border-color: #d1d5db;
+}
+
+.tourPlatformImageWrapper {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 16 / 9;
+  overflow: hidden;
+}
+
+.tourPlatformImage {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.tourPlatformCardImage:hover .tourPlatformImage {
+  transform: scale(1.1);
+}
+
+.tourPlatformImageOverlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(to bottom, transparent 0%, rgba(0, 0, 0, 0.4) 100%);
+}
+
+.tourPlatformImageWrapper .tourPlatformBadge {
+  position: absolute;
+  top: 16px;
+  right: 16px;
+  background: rgba(255, 255, 255, 0.95);
+  backdrop-filter: blur(10px);
+  color: #222222;
+  border: none;
+}
+
+.tourPlatformImageContent {
+  padding: 24px;
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+}
+
+.tourPlatformImageLogo {
+  width: 70px;
+  height: 70px;
+  margin-bottom: 16px;
+  background: #f9fafb;
+  border-radius: 12px;
+  padding: 14px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.tourPlatformImageLogo img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  filter: brightness(0) invert(0);
+}
+
+.tourPlatformImageName {
+  font-size: 22px;
+  font-weight: 600;
+  color: #222222;
+  margin: 0 0 10px;
+  letter-spacing: -0.02em;
+  line-height: 1.3;
+}
+
+.tourPlatformImageDescription {
+  font-size: 14px;
+  color: #717171;
+  line-height: 1.6;
+  margin: 0 0 16px;
+  flex: 1;
+}
+
+.tourPlatformImageLink {
+  font-size: 14px;
+  font-weight: 600;
+  color: #006ce4;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  transition: all 0.2s ease;
+}
+
+.tourPlatformCardImage:hover .tourPlatformImageLink {
+  color: #0052a3;
+  transform: translateX(4px);
+}
+
+/* Minimal Style Cards (Clean & Simple) */
+.tourPlatformCardMinimal {
+  background: #ffffff;
+  border-radius: 16px;
+  padding: 28px;
+  border: 2px solid #f3f4f6;
+  text-decoration: none;
+  color: inherit;
+  display: flex;
+  flex-direction: column;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  cursor: pointer;
+  position: relative;
+  overflow: hidden;
+}
+
+.tourPlatformCardMinimal::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 4px;
+  background: linear-gradient(90deg, #006ce4, #34d399);
+  transform: scaleX(0);
+  transition: transform 0.3s ease;
+}
+
+.tourPlatformCardMinimal:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 12px 24px rgba(0, 0, 0, 0.1);
+  border-color: #e5e7eb;
+}
+
+.tourPlatformCardMinimal:hover::before {
+  transform: scaleX(1);
+}
+
+.tourPlatformMinimalHeader {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  margin-bottom: 20px;
+}
+
+.tourPlatformMinimalLogo {
+  width: 80px;
+  height: 80px;
+  background: linear-gradient(135deg, #f9fafb 0%, #f3f4f6 100%);
+  border-radius: 14px;
+  padding: 18px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 1px solid #e5e7eb;
+}
+
+.tourPlatformMinimalLogo img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  filter: brightness(0) invert(0);
+}
+
+.tourPlatformMinimalBadge {
+  padding: 6px 12px;
+  background: #f0fdf4;
+  color: #16a34a;
+  border-radius: 8px;
+  font-size: 11px;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.tourPlatformMinimalContent {
+  flex: 1;
+  margin-bottom: 20px;
+}
+
+.tourPlatformMinimalName {
+  font-size: 24px;
+  font-weight: 700;
+  color: #222222;
+  margin: 0 0 12px;
+  letter-spacing: -0.03em;
+  line-height: 1.2;
+}
+
+.tourPlatformMinimalDescription {
+  font-size: 15px;
+  color: #6b7280;
+  line-height: 1.6;
+  margin: 0;
+}
+
+.tourPlatformMinimalImage {
+  width: 100%;
+  height: 140px;
+  border-radius: 12px;
+  overflow: hidden;
+  margin-bottom: 20px;
+  background: #f9fafb;
+}
+
+.tourPlatformMinimalImage img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.4s ease;
+}
+
+.tourPlatformCardMinimal:hover .tourPlatformMinimalImage img {
+  transform: scale(1.08);
+}
+
+.tourPlatformMinimalLink {
+  font-size: 15px;
+  font-weight: 600;
+  color: #006ce4;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 10px 0;
+  transition: all 0.2s ease;
+}
+
+.tourPlatformCardMinimal:hover .tourPlatformMinimalLink {
+  color: #0052a3;
+  transform: translateX(4px);
+}
+
+.tourPlatformLogoFallback {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 32px;
+  font-weight: 600;
+  color: #717171;
+  background: #f3f4f6;
+  border-radius: 8px;
+}
+
+/* Eat & Drink Cards */
+.eatDrinkGrid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 20px;
+  margin-top: 32px;
+}
+
+@media (min-width: 640px) {
+  .eatDrinkGrid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 24px;
+  }
+}
+
+@media (min-width: 1024px) {
+  .eatDrinkGrid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+.eatDrinkCard {
+  background: #ffffff;
+  border-radius: 16px;
+  padding: 24px;
+  border: 2px solid #f3f4f6;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
+}
+
+.eatDrinkCard:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 12px 24px rgba(0, 0, 0, 0.1);
+  border-color: #e5e7eb;
+}
+
+.eatDrinkCardCasual {
+  background: linear-gradient(135deg, #ffffff 0%, #f9fafb 100%);
+  border-radius: 16px;
+  padding: 24px;
+  border: 1px solid #e5e7eb;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04);
+  position: relative;
+  overflow: hidden;
+}
+
+.eatDrinkCardCasual::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 4px;
+  height: 100%;
+  background: linear-gradient(180deg, #f59e0b, #d97706);
+  transform: scaleY(0);
+  transition: transform 0.3s ease;
+}
+
+.eatDrinkCardCasual:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 12px 24px rgba(0, 0, 0, 0.12);
+}
+
+.eatDrinkCardCasual:hover::before {
+  transform: scaleY(1);
+}
+
+.eatDrinkCardFancy {
+  background: linear-gradient(135deg, #ffffff 0%, #fef3c7 100%);
+  border-radius: 16px;
+  padding: 24px;
+  border: 2px solid #fde68a;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  box-shadow: 0 4px 12px rgba(245, 158, 11, 0.1);
+  position: relative;
+}
+
+.eatDrinkCardFancy::after {
+  content: '✨';
+  position: absolute;
+  top: 16px;
+  right: 16px;
+  font-size: 20px;
+  opacity: 0.3;
+}
+
+.eatDrinkCardFancy:hover {
+  transform: translateY(-4px) scale(1.02);
+  box-shadow: 0 16px 32px rgba(245, 158, 11, 0.15);
+  border-color: #fbbf24;
+}
+
+.eatDrinkCardCoffee {
+  background: linear-gradient(135deg, #ffffff 0%, #fef3c7 100%);
+  border-radius: 16px;
+  padding: 24px;
+  border: 2px solid #d1d5db;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.06);
+}
+
+.eatDrinkCardCoffee:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 12px 24px rgba(0, 0, 0, 0.1);
+  border-color: #9ca3af;
+}
+
+.eatDrinkCardCoffee.eatDrinkCardHighlight {
+  border: 3px solid #f59e0b;
+  background: linear-gradient(135deg, #fffbeb 0%, #fef3c7 100%);
+  box-shadow: 0 8px 24px rgba(245, 158, 11, 0.2);
+}
+
+.eatDrinkCardCoffee.eatDrinkCardHighlight:hover {
+  box-shadow: 0 16px 32px rgba(245, 158, 11, 0.3);
+}
+
+.eatDrinkCardDrinks {
+  background: linear-gradient(135deg, #1f2937 0%, #111827 100%);
+  border-radius: 16px;
+  padding: 24px;
+  border: 2px solid #374151;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+  color: #ffffff;
+}
+
+.eatDrinkCardDrinks:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 16px 32px rgba(0, 0, 0, 0.3);
+  border-color: #4b5563;
+}
+
+.eatDrinkCardContent {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.eatDrinkCardBadge {
+  display: inline-block;
+  padding: 6px 12px;
+  background: linear-gradient(135deg, #f59e0b, #d97706);
+  color: #ffffff;
+  border-radius: 20px;
+  font-size: 11px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  align-self: flex-start;
+  margin-bottom: 4px;
+}
+
+.eatDrinkCardTitle {
+  font-size: 22px;
+  font-weight: 700;
+  color: #111827;
+  margin: 0;
+  letter-spacing: -0.02em;
+  line-height: 1.3;
+}
+
+.eatDrinkCardDrinks .eatDrinkCardTitle {
+  color: #ffffff;
+}
+
+.eatDrinkCardDescription {
+  font-size: 14px;
+  color: #6b7280;
+  line-height: 1.7;
+  margin: 0;
+  flex: 1;
+}
+
+.eatDrinkCardDrinks .eatDrinkCardDescription {
+  color: rgba(255, 255, 255, 0.9);
+}
+
+.eatDrinkCardFooter {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 8px;
+  padding-top: 16px;
+  border-top: 1px solid #e5e7eb;
+  flex-wrap: wrap;
+  gap: 12px;
+}
+
+.eatDrinkCardDrinks .eatDrinkCardFooter {
+  border-top-color: rgba(255, 255, 255, 0.2);
+}
+
+.eatDrinkCardLocation {
+  font-size: 13px;
+  color: #9ca3af;
+  display: flex;
+  align-items: center;
+  gap: 4px;
+}
+
+.eatDrinkCardDrinks .eatDrinkCardLocation {
+  color: rgba(255, 255, 255, 0.7);
+}
+
+.eatDrinkCardMapLink {
+  font-size: 13px;
+  font-weight: 600;
+  color: #3b82f6;
+  text-decoration: none;
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  transition: all 0.2s ease;
+  padding: 6px 12px;
+  border-radius: 8px;
+  background: rgba(59, 130, 246, 0.1);
+}
+
+.eatDrinkCardMapLink:hover {
+  color: #2563eb;
+  background: rgba(59, 130, 246, 0.15);
+  transform: translateX(2px);
+}
+
+.eatDrinkCardDrinks .eatDrinkCardMapLink {
+  color: #60a5fa;
+  background: rgba(96, 165, 250, 0.2);
+}
+
+.eatDrinkCardDrinks .eatDrinkCardMapLink:hover {
+  color: #93c5fd;
+  background: rgba(96, 165, 250, 0.3);
+}
+
+/* Eat & Drink Showcase */
+.eatDrinkShowcaseGrid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 28px;
+  margin-top: 32px;
+}
+
+@media (min-width: 900px) {
+  .eatDrinkShowcaseGrid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+.eatDrinkShowcaseCard {
+  background: #ffffff;
+  border-radius: 16px;
+  overflow: hidden;
+  border: 1px solid #e5e7eb;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.06);
+  display: grid;
+  grid-template-columns: 1fr;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+@media (min-width: 640px) {
+  .eatDrinkShowcaseCard {
+    grid-template-columns: 1.1fr 1.4fr;
+  }
+}
+
+.eatDrinkShowcaseCard:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 16px 32px rgba(0, 0, 0, 0.12);
+  border-color: #d1d5db;
+}
+
+.eatDrinkShowcaseImageWrapper {
+  position: relative;
+  height: 240px;
+}
+
+@media (min-width: 640px) {
+  .eatDrinkShowcaseImageWrapper {
+    height: 100%;
+    min-height: 260px;
+  }
+}
+
+.eatDrinkShowcaseImage {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.eatDrinkShowcaseOverlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(180deg, rgba(0, 0, 0, 0.1) 0%, rgba(0, 0, 0, 0.45) 100%);
+}
+
+.eatDrinkBadge {
+  position: absolute;
+  top: 16px;
+  left: 16px;
+  padding: 8px 14px;
+  background: rgba(255, 255, 255, 0.9);
+  color: #111827;
+  border-radius: 999px;
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 0.3px;
+  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.08);
+}
+
+.eatDrinkShowcaseContent {
+  padding: 22px;
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+.eatDrinkShowcaseTitle {
+  margin: 0;
+  font-size: 22px;
+  font-weight: 700;
+  letter-spacing: -0.02em;
+  color: #111827;
+}
+
+.eatDrinkShowcaseDescription {
+  margin: 0;
+  font-size: 14px;
+  color: #4b5563;
+  line-height: 1.6;
+}
+
+.eatDrinkPlacesList {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.eatDrinkPlaceItem {
+  display: flex;
+  justify-content: space-between;
+  gap: 12px;
+  padding: 12px 0;
+  border-top: 1px solid #e5e7eb;
+}
+
+.eatDrinkPlaceName {
+  font-size: 15px;
+  font-weight: 700;
+  color: #111827;
+  margin-bottom: 4px;
+}
+
+.eatDrinkPlaceMeta {
+  font-size: 13px;
+  color: #6b7280;
+  margin-bottom: 6px;
+}
+
+.eatDrinkPlaceLocation {
+  font-size: 12px;
+  color: #9ca3af;
+}
+
+.eatDrinkPlaceLink {
+  font-size: 13px;
+  font-weight: 600;
+  color: #2563eb;
+  text-decoration: none;
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  padding: 8px 12px;
+  border-radius: 10px;
+  background: rgba(37, 99, 235, 0.08);
+  height: fit-content;
+  align-self: flex-start;
+  transition: all 0.2s ease;
+}
+
+.eatDrinkPlaceLink:hover {
+  background: rgba(37, 99, 235, 0.14);
+  color: #1d4ed8;
+  transform: translateX(2px);
+}
+
+/* Eat & Drink segmented layout */
+.eatDrinkSectionList {
+  display: flex;
+  flex-direction: column;
+  gap: 28px;
+  margin-top: 24px;
+}
+
+.eatDrinkSection {
+  border-radius: 16px;
+  padding: 20px;
+  border: 1px solid #e5e7eb;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.08);
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+}
+
+.eatDrinkSectionLight {
+  background: #ffffff;
+}
+
+.eatDrinkSectionDark {
+  background: linear-gradient(135deg, #0f172a 0%, #111827 100%);
+  border-color: #1f2937;
+  color: #ffffff;
+}
+
+.eatDrinkSectionHeader {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 16px;
+  align-items: center;
+}
+
+@media (min-width: 820px) {
+  .eatDrinkSectionHeader {
+    grid-template-columns: 1fr 320px;
+  }
+}
+
+.eatDrinkSectionImage {
+  border-radius: 14px;
+  overflow: hidden;
+  box-shadow: 0 10px 24px rgba(0, 0, 0, 0.15);
+}
+
+.eatDrinkSectionImage img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+.eatDrinkSectionEyebrow {
+  margin: 0;
+  font-size: 12px;
+  text-transform: uppercase;
+  letter-spacing: 0.6px;
+  color: #6b7280;
+  font-weight: 700;
+}
+
+.eatDrinkSectionDark .eatDrinkSectionEyebrow {
+  color: rgba(255, 255, 255, 0.7);
+}
+
+.eatDrinkSectionTitle {
+  margin: 4px 0 6px;
+  font-size: 22px;
+  font-weight: 800;
+  letter-spacing: -0.02em;
+  color: #111827;
+}
+
+.eatDrinkSectionDark .eatDrinkSectionTitle {
+  color: #ffffff;
+}
+
+.eatDrinkSectionDesc {
+  margin: 0;
+  font-size: 14px;
+  line-height: 1.6;
+  color: #4b5563;
+}
+
+.eatDrinkSectionDark .eatDrinkSectionDesc {
+  color: rgba(255, 255, 255, 0.85);
+}
+
+.eatDrinkMiniGrid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 12px;
+}
+
+@media (min-width: 700px) {
+  .eatDrinkMiniGrid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+/* Eat & Drink Masonry (Airbnb-style) */
+.eatDrinkMasonry {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 24px;
+  margin-top: 24px;
+}
+
+@media (min-width: 900px) {
+  .eatDrinkMasonry {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+.eatDrinkPanel {
+  display: grid;
+  grid-template-columns: 1fr;
+  border-radius: 16px;
+  overflow: hidden;
+  border: 1px solid #e5e7eb;
+  box-shadow: 0 10px 24px rgba(0, 0, 0, 0.08);
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
+}
+
+@media (min-width: 700px) {
+  .eatDrinkPanel {
+    grid-template-columns: 0.9fr 1.4fr;
+  }
+}
+
+.eatDrinkPanel:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 16px 32px rgba(0, 0, 0, 0.12);
+}
+
+.eatDrinkPanelLight {
+  background: #ffffff;
+}
+
+.eatDrinkPanelDark {
+  background: linear-gradient(135deg, #0f172a 0%, #111827 100%);
+  border-color: #1f2937;
+}
+
+.eatDrinkPanelMedia {
+  position: relative;
+  min-height: 220px;
+}
+
+.eatDrinkPanelMedia img {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.eatDrinkPanelBadge {
+  position: absolute;
+  top: 14px;
+  left: 14px;
+  padding: 8px 12px;
+  background: rgba(255, 255, 255, 0.92);
+  color: #111827;
+  border-radius: 999px;
+  font-size: 12px;
+  font-weight: 700;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.12);
+}
+
+.eatDrinkPanelBody {
+  padding: 22px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.eatDrinkPanelTitle {
+  margin: 0;
+  font-size: 22px;
+  font-weight: 800;
+  letter-spacing: -0.02em;
+}
+
+.eatDrinkPanelText {
+  margin: 0;
+  font-size: 14px;
+  line-height: 1.7;
+  color: #4b5563;
+}
+
+.eatDrinkPanelDark .eatDrinkPanelTitle {
+  color: #ffffff;
+}
+
+.eatDrinkPanelDark .eatDrinkPanelText {
+  color: rgba(255, 255, 255, 0.9);
+}
+
+.eatDrinkPanelList {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 12px;
+}
+
+.eatDrinkMiniCard {
+  background: #ffffff;
+  border: 1px solid #e5e7eb;
+  border-radius: 12px;
+  padding: 14px;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  transition: border-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+.eatDrinkMiniCard:hover {
+  border-color: #d1d5db;
+  box-shadow: 0 10px 22px rgba(0, 0, 0, 0.08);
+}
+
+.eatDrinkPanelDark .eatDrinkMiniCard {
+  background: #0b1220;
+  border-color: #1f2937;
+  color: #e5e7eb;
+}
+
+.eatDrinkMiniHeader {
+  display: flex;
+  justify-content: space-between;
+  gap: 10px;
+  align-items: center;
+}
+
+.eatDrinkMiniName {
+  font-size: 15px;
+  font-weight: 700;
+  color: #111827;
+}
+
+.eatDrinkPanelDark .eatDrinkMiniName {
+  color: #ffffff;
+}
+
+.eatDrinkMiniLink {
+  font-size: 12px;
+  font-weight: 700;
+  color: #2563eb;
+  text-decoration: none;
+  background: rgba(37, 99, 235, 0.1);
+  padding: 6px 10px;
+  border-radius: 8px;
+  transition: all 0.2s ease;
+  white-space: nowrap;
+}
+
+.eatDrinkMiniLink:hover {
+  color: #1d4ed8;
+  background: rgba(37, 99, 235, 0.18);
+}
+
+.eatDrinkPanelDark .eatDrinkMiniLink {
+  color: #93c5fd;
+  background: rgba(147, 197, 253, 0.15);
+}
+
+.eatDrinkPanelDark .eatDrinkMiniLink:hover {
+  color: #bfdbfe;
+  background: rgba(147, 197, 253, 0.25);
+}
+
+.eatDrinkMiniDesc {
+  margin: 0;
+  font-size: 13px;
+  color: #6b7280;
+  line-height: 1.6;
+}
+
+.eatDrinkPanelDark .eatDrinkMiniDesc {
+  color: rgba(229, 231, 235, 0.85);
+}
+
+.eatDrinkMiniLoc {
+  font-size: 12px;
+  color: #9ca3af;
+}
+
+.eatDrinkPanelDark .eatDrinkMiniLoc {
+  color: rgba(255, 255, 255, 0.7);
+}
+
+/* ============================================
+   EAT & DRINK - AIRBNB STYLE LAYOUT
+   ============================================ */
+
+/* Hero Intro Section */
+.eatDrinkIntro {
+  padding: 80px 0 60px;
+  background: #ffffff;
+  text-align: center;
+}
+
+.eatDrinkIntroEyebrow {
+  font-size: 13px;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  color: #dc2626;
+  margin: 0 0 20px;
+}
+
+.eatDrinkIntroTitle {
+  font-size: 32px;
+  font-weight: 700;
+  color: #111827;
+  line-height: 1.3;
+  max-width: 800px;
+  margin: 0 auto 24px;
+  letter-spacing: -0.02em;
+}
+
+@media (min-width: 768px) {
+  .eatDrinkIntroTitle {
+    font-size: 42px;
+  }
+}
+
+.eatDrinkIntroSubtitle {
+  font-size: 18px;
+  color: #6b7280;
+  line-height: 1.7;
+  max-width: 640px;
+  margin: 0 auto;
+}
+
+/* Featured Card (Mercado San Pedro) */
+.eatDrinkFeatured {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 32px;
+  background: #ffffff;
+  border-radius: 24px;
+  overflow: hidden;
+  border: 1px solid #e5e7eb;
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.08);
+}
+
+@media (min-width: 900px) {
+  .eatDrinkFeatured {
+    grid-template-columns: 1.3fr 1fr;
+  }
+}
+
+.eatDrinkFeaturedImage {
+  position: relative;
+  min-height: 320px;
+}
+
+.eatDrinkFeaturedImage img {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.eatDrinkFeaturedBadge {
+  position: absolute;
+  top: 20px;
+  left: 20px;
+  padding: 10px 18px;
+  background: #dc2626;
+  color: #ffffff;
+  border-radius: 999px;
+  font-size: 12px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.eatDrinkFeaturedContent {
+  padding: 40px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.eatDrinkFeaturedEyebrow {
+  font-size: 12px;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 1.5px;
+  color: #9ca3af;
+  margin: 0 0 12px;
+}
+
+.eatDrinkFeaturedTitle {
+  font-size: 32px;
+  font-weight: 700;
+  color: #111827;
+  margin: 0 0 16px;
+  letter-spacing: -0.02em;
+}
+
+.eatDrinkFeaturedDesc {
+  font-size: 16px;
+  color: #4b5563;
+  line-height: 1.7;
+  margin: 0 0 24px;
+}
+
+.eatDrinkFeaturedLink {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 14px 28px;
+  background: #111827;
+  color: #ffffff;
+  text-decoration: none;
+  border-radius: 12px;
+  font-size: 15px;
+  font-weight: 600;
+  transition: all 0.2s ease;
+  align-self: flex-start;
+}
+
+.eatDrinkFeaturedLink:hover {
+  background: #000000;
+  transform: translateY(-2px);
+}
+
+/* Quote Divider */
+.eatDrinkQuote {
+  padding: 60px 24px;
+  text-align: center;
+  background: linear-gradient(135deg, #fef3c7 0%, #fde68a 100%);
+}
+
+.eatDrinkQuote blockquote {
+  font-size: 22px;
+  font-weight: 500;
+  color: #92400e;
+  font-style: italic;
+  max-width: 700px;
+  margin: 0 auto;
+  line-height: 1.6;
+}
+
+@media (min-width: 768px) {
+  .eatDrinkQuote blockquote {
+    font-size: 26px;
+  }
+}
+
+/* Section Intro */
+.eatDrinkSectionIntro {
+  margin-bottom: 40px;
+}
+
+.eatDrinkSectionTitle {
+  font-size: 28px;
+  font-weight: 700;
+  color: #111827;
+  margin: 0 0 12px;
+  letter-spacing: -0.02em;
+}
+
+.eatDrinkSectionDesc {
+  font-size: 16px;
+  color: #6b7280;
+  line-height: 1.6;
+  max-width: 600px;
+  margin: 0;
+}
+
+/* Cards Grid (3 columns) */
+.eatDrinkCardsGrid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 20px;
+  margin-bottom: 32px;
+}
+
+@media (min-width: 640px) {
+  .eatDrinkCardsGrid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (min-width: 1024px) {
+  .eatDrinkCardsGrid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+.eatDrinkCard {
+  background: #ffffff;
+  border: 1px solid #e5e7eb;
+  border-radius: 16px;
+  padding: 24px;
+  transition: all 0.25s ease;
+}
+
+.eatDrinkCard:hover {
+  border-color: #d1d5db;
+  box-shadow: 0 12px 28px rgba(0, 0, 0, 0.1);
+  transform: translateY(-4px);
+}
+
+.eatDrinkCardTitle {
+  font-size: 18px;
+  font-weight: 700;
+  color: #111827;
+  margin: 0 0 10px;
+}
+
+.eatDrinkCardDesc {
+  font-size: 14px;
+  color: #6b7280;
+  line-height: 1.6;
+  margin: 0 0 12px;
+}
+
+.eatDrinkCardLocation {
+  font-size: 13px;
+  color: #9ca3af;
+}
+
+/* Cards Row (horizontal scroll on mobile) */
+.eatDrinkCardsRow {
+  display: flex;
+  gap: 16px;
+  overflow-x: auto;
+  padding-bottom: 16px;
+  -webkit-overflow-scrolling: touch;
+  scrollbar-width: thin;
+}
+
+.eatDrinkCardsRow::-webkit-scrollbar {
+  height: 6px;
+}
+
+.eatDrinkCardsRow::-webkit-scrollbar-track {
+  background: #f1f5f9;
+  border-radius: 3px;
+}
+
+.eatDrinkCardsRow::-webkit-scrollbar-thumb {
+  background: #cbd5e1;
+  border-radius: 3px;
+}
+
+.eatDrinkCardCompact {
+  flex: 0 0 280px;
+  background: #ffffff;
+  border: 1px solid #e5e7eb;
+  border-radius: 14px;
+  padding: 20px;
+  transition: all 0.2s ease;
+}
+
+.eatDrinkCardCompact:hover {
+  border-color: #d1d5db;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.08);
+}
+
+.eatDrinkCardCompactTitle {
+  font-size: 16px;
+  font-weight: 700;
+  color: #111827;
+  margin: 0 0 8px;
+}
+
+.eatDrinkCardCompactDesc {
+  font-size: 14px;
+  color: #6b7280;
+  line-height: 1.5;
+  margin: 0;
+}
+
+/* Simple List */
+.eatDrinkSimpleList {
+  background: #f9fafb;
+  border-radius: 14px;
+  padding: 24px;
+  margin-top: 24px;
+}
+
+.eatDrinkSimpleListTitle {
+  font-size: 14px;
+  font-weight: 700;
+  color: #374151;
+  margin: 0 0 16px;
+}
+
+.eatDrinkSimpleListItems {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.eatDrinkSimpleListItem {
+  font-size: 14px;
+  color: #4b5563;
+  line-height: 1.6;
+}
+
+.eatDrinkSimpleListItem strong {
+  color: #111827;
+}
+
+/* Featured Alt (text left, image right) */
+.eatDrinkFeaturedAlt {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 32px;
+  background: linear-gradient(135deg, #1f2937 0%, #111827 100%);
+  border-radius: 20px;
+  overflow: hidden;
+  margin-bottom: 40px;
+}
+
+@media (min-width: 768px) {
+  .eatDrinkFeaturedAlt {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+.eatDrinkFeaturedAltContent {
+  padding: 40px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.eatDrinkFeaturedAltBadge {
+  display: inline-block;
+  padding: 8px 14px;
+  background: rgba(255, 255, 255, 0.15);
+  color: #fbbf24;
+  border-radius: 8px;
+  font-size: 12px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  margin-bottom: 16px;
+  align-self: flex-start;
+}
+
+.eatDrinkFeaturedAltTitle {
+  font-size: 28px;
+  font-weight: 700;
+  color: #ffffff;
+  margin: 0 0 16px;
+  letter-spacing: -0.02em;
+}
+
+.eatDrinkFeaturedAltDesc {
+  font-size: 16px;
+  color: rgba(255, 255, 255, 0.85);
+  line-height: 1.7;
+  margin: 0;
+}
+
+.eatDrinkFeaturedAltImage {
+  position: relative;
+  min-height: 280px;
+}
+
+.eatDrinkFeaturedAltImage img {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+/* Coffee Section */
+.eatDrinkCoffeeSection {
+  padding: 64px 0;
+  background: linear-gradient(180deg, #78350f 0%, #451a03 100%);
+  color: #ffffff;
+}
+
+.eatDrinkCoffeeHeader {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 32px;
+  margin-bottom: 40px;
+}
+
+@media (min-width: 768px) {
+  .eatDrinkCoffeeHeader {
+    grid-template-columns: 1fr 1fr;
+    align-items: center;
+  }
+}
+
+.eatDrinkCoffeeText {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.eatDrinkCoffeeEyebrow {
+  font-size: 12px;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  color: #fbbf24;
+  margin: 0;
+}
+
+.eatDrinkCoffeeTitle {
+  font-size: 32px;
+  font-weight: 700;
+  color: #ffffff;
+  margin: 0;
+  letter-spacing: -0.02em;
+}
+
+.eatDrinkCoffeeDesc {
+  font-size: 16px;
+  color: rgba(255, 255, 255, 0.8);
+  line-height: 1.6;
+  margin: 0;
+}
+
+.eatDrinkCoffeeFeature {
+  background: rgba(255, 255, 255, 0.1);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  border-radius: 16px;
+  padding: 28px;
+}
+
+.eatDrinkCoffeeBadge {
+  display: inline-block;
+  padding: 6px 12px;
+  background: #fbbf24;
+  color: #78350f;
+  border-radius: 6px;
+  font-size: 11px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  margin-bottom: 12px;
+}
+
+.eatDrinkCoffeeFeature h4 {
+  font-size: 22px;
+  font-weight: 700;
+  color: #ffffff;
+  margin: 0 0 10px;
+}
+
+.eatDrinkCoffeeFeature p {
+  font-size: 14px;
+  color: rgba(255, 255, 255, 0.85);
+  line-height: 1.6;
+  margin: 0;
+}
+
+.eatDrinkCoffeeGrid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 16px;
+}
+
+@media (min-width: 640px) {
+  .eatDrinkCoffeeGrid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (min-width: 1024px) {
+  .eatDrinkCoffeeGrid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+.eatDrinkCoffeeCard {
+  background: rgba(255, 255, 255, 0.08);
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  border-radius: 14px;
+  padding: 22px;
+  transition: all 0.2s ease;
+}
+
+.eatDrinkCoffeeCard:hover {
+  background: rgba(255, 255, 255, 0.12);
+  border-color: rgba(255, 255, 255, 0.25);
+  transform: translateY(-2px);
+}
+
+.eatDrinkCoffeeCard h4 {
+  font-size: 17px;
+  font-weight: 700;
+  color: #ffffff;
+  margin: 0 0 10px;
+}
+
+.eatDrinkCoffeeCard p {
+  font-size: 14px;
+  color: rgba(255, 255, 255, 0.8);
+  line-height: 1.6;
+  margin: 0;
+}
+
+/* Drinks Section */
+.eatDrinkDrinksFeatured {
+  position: relative;
+  border-radius: 20px;
+  overflow: hidden;
+  margin-bottom: 40px;
+  min-height: 320px;
+}
+
+.eatDrinkDrinksFeatured img {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.eatDrinkDrinksFeaturedOverlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(135deg, rgba(0, 0, 0, 0.7) 0%, rgba(0, 0, 0, 0.4) 100%);
+  padding: 40px;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+}
+
+.eatDrinkDrinksFeaturedBadge {
+  display: inline-block;
+  padding: 8px 14px;
+  background: #7c3aed;
+  color: #ffffff;
+  border-radius: 8px;
+  font-size: 12px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  margin-bottom: 16px;
+  align-self: flex-start;
+}
+
+.eatDrinkDrinksFeaturedOverlay h4 {
+  font-size: 28px;
+  font-weight: 700;
+  color: #ffffff;
+  margin: 0 0 12px;
+}
+
+.eatDrinkDrinksFeaturedOverlay p {
+  font-size: 16px;
+  color: rgba(255, 255, 255, 0.9);
+  margin: 0 0 16px;
+}
+
+.eatDrinkDrinksFeaturedOverlay a {
+  color: #ffffff;
+  text-decoration: none;
+  font-size: 15px;
+  font-weight: 600;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  transition: all 0.2s ease;
+}
+
+.eatDrinkDrinksFeaturedOverlay a:hover {
+  transform: translateX(4px);
+}
+
+.eatDrinkDrinksGrid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 16px;
+  margin-bottom: 24px;
+}
+
+@media (min-width: 640px) {
+  .eatDrinkDrinksGrid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (min-width: 1024px) {
+  .eatDrinkDrinksGrid {
+    grid-template-columns: repeat(4, 1fr);
+  }
+}
+
+.eatDrinkDrinksCard {
+  background: #ffffff;
+  border: 1px solid #e5e7eb;
+  border-radius: 14px;
+  padding: 20px;
+  transition: all 0.2s ease;
+}
+
+.eatDrinkDrinksCard:hover {
+  border-color: #d1d5db;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.08);
+}
+
+.eatDrinkDrinksCardHeader {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 12px;
+  margin-bottom: 10px;
+}
+
+.eatDrinkDrinksCardHeader h4 {
+  font-size: 16px;
+  font-weight: 700;
+  color: #111827;
+  margin: 0;
+}
+
+.eatDrinkDrinksCardHeader a {
+  font-size: 12px;
+  font-weight: 600;
+  color: #7c3aed;
+  text-decoration: none;
+  padding: 4px 10px;
+  background: rgba(124, 58, 237, 0.1);
+  border-radius: 6px;
+  transition: all 0.2s ease;
+  white-space: nowrap;
+}
+
+.eatDrinkDrinksCardHeader a:hover {
+  background: rgba(124, 58, 237, 0.15);
+  color: #6d28d9;
+}
+
+.eatDrinkDrinksCard p {
+  font-size: 14px;
+  color: #6b7280;
+  line-height: 1.5;
+  margin: 0 0 10px;
+}
+
+.eatDrinkDrinksCardLoc {
+  font-size: 12px;
+  color: #9ca3af;
+}
+
+/* ============================================
+   TRANSPORTATION - TRAINS SECTION (Premium Design)
+   ============================================ */
+
+/* Hero Section with Background Image */
+.transportHero {
+  position: relative;
+  min-height: 500px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+}
+
+@media (min-width: 768px) {
+  .transportHero {
+    min-height: 600px;
+  }
+}
+
+.transportHeroBg {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  filter: brightness(0.6);
+}
+
+.transportHeroOverlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(180deg, rgba(12, 74, 110, 0.4) 0%, rgba(0, 0, 0, 0.7) 100%);
+}
+
+.transportHeroContent {
+  position: relative;
+  z-index: 1;
+  text-align: center;
+  padding: 40px 24px;
+  max-width: 900px;
+}
+
+.transportHeroEyebrow {
+  display: inline-block;
+  padding: 10px 20px;
+  background: rgba(255, 255, 255, 0.15);
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  border-radius: 999px;
+  font-size: 14px;
+  font-weight: 600;
+  color: #ffffff;
+  margin-bottom: 24px;
+}
+
+.transportHeroTitle {
+  font-size: 48px;
+  font-weight: 800;
+  color: #ffffff;
+  line-height: 1.1;
+  margin: 0 0 20px;
+  letter-spacing: -0.03em;
+  text-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+}
+
+@media (min-width: 768px) {
+  .transportHeroTitle {
+    font-size: 72px;
+  }
+}
+
+.transportHeroSubtitle {
+  font-size: 18px;
+  color: rgba(255, 255, 255, 0.9);
+  line-height: 1.6;
+  margin: 0 0 40px;
+  max-width: 500px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+@media (min-width: 768px) {
+  .transportHeroSubtitle {
+    font-size: 20px;
+  }
+}
+
+.transportHeroStats {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 24px;
+  flex-wrap: wrap;
+}
+
+@media (min-width: 640px) {
+  .transportHeroStats {
+    gap: 40px;
+  }
+}
+
+.transportHeroStat {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 4px;
+}
+
+.transportHeroStatNumber {
+  font-size: 36px;
+  font-weight: 800;
+  color: #ffffff;
+  letter-spacing: -0.02em;
+}
+
+@media (min-width: 768px) {
+  .transportHeroStatNumber {
+    font-size: 48px;
+  }
+}
+
+.transportHeroStatLabel {
+  font-size: 12px;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  color: rgba(255, 255, 255, 0.7);
+}
+
+.transportHeroStatDivider {
+  width: 1px;
+  height: 40px;
+  background: rgba(255, 255, 255, 0.3);
+}
+
+/* Notice Section - Floating */
+.transportNoticeSection {
+  margin-top: -60px;
+  position: relative;
+  z-index: 10;
+  padding: 0 0 40px;
+}
+
+.transportNotice {
+  display: flex;
+  gap: 20px;
+  align-items: flex-start;
+  background: #ffffff;
+  border-radius: 20px;
+  padding: 28px 32px;
+  box-shadow: 0 20px 50px rgba(0, 0, 0, 0.15);
+  border-left: 5px solid #f59e0b;
+}
+
+.transportNoticeIcon {
+  width: 48px;
+  height: 48px;
+  background: linear-gradient(135deg, #fef3c7 0%, #fde68a 100%);
+  border-radius: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  color: #d97706;
+}
+
+.transportNoticeContent h4 {
+  font-size: 18px;
+  font-weight: 700;
+  color: #111827;
+  margin: 0 0 8px;
+}
+
+.transportNoticeContent p {
+  font-size: 15px;
+  color: #4b5563;
+  line-height: 1.6;
+  margin: 0;
+}
+
+.transportNoticeContent strong {
+  color: #d97706;
+}
+
+/* Section Header with Number */
+.transportSectionHeader {
+  display: flex;
+  gap: 20px;
+  align-items: flex-start;
+  margin-bottom: 40px;
+}
+
+.transportSectionNumber {
+  font-size: 48px;
+  font-weight: 900;
+  color: #e5e7eb;
+  line-height: 1;
+  letter-spacing: -0.05em;
+}
+
+.transportSectionTitle {
+  font-size: 28px;
+  font-weight: 700;
+  color: #111827;
+  margin: 0 0 8px;
+  letter-spacing: -0.02em;
+}
+
+.transportSectionDesc {
+  font-size: 16px;
+  color: #6b7280;
+  margin: 0;
+}
+
+/* Departure Points - Visual Cards */
+.transportDepartureGrid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 20px;
+}
+
+@media (min-width: 768px) {
+  .transportDepartureGrid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+.transportDepartureCard {
+  position: relative;
+  border-radius: 20px;
+  overflow: hidden;
+  transition: all 0.3s ease;
+}
+
+.transportDepartureCard::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(135deg, #f8fafc 0%, #f1f5f9 100%);
+  border: 2px solid #e2e8f0;
+  border-radius: 20px;
+  transition: all 0.3s ease;
+}
+
+.transportDepartureCard:hover::before {
+  border-color: #cbd5e1;
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+}
+
+.transportDepartureCard:hover {
+  transform: translateY(-6px);
+}
+
+.transportDepartureCardHighlight::before {
+  background: linear-gradient(135deg, #ecfdf5 0%, #d1fae5 100%);
+  border-color: #34d399;
+  border-width: 2px;
+}
+
+.transportDepartureCardHighlight:hover::before {
+  border-color: #10b981;
+  box-shadow: 0 20px 40px rgba(16, 185, 129, 0.2);
+}
+
+.transportDepartureCardInner {
+  position: relative;
+  padding: 32px;
+}
+
+.transportDepartureBadge {
+  position: absolute;
+  top: -1px;
+  right: 24px;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 8px 16px;
+  background: linear-gradient(135deg, #10b981 0%, #059669 100%);
+  color: #ffffff;
+  border-radius: 0 0 12px 12px;
+  font-size: 11px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.transportDepartureIndex {
+  font-size: 64px;
+  font-weight: 900;
+  color: rgba(0, 0, 0, 0.04);
+  position: absolute;
+  top: 16px;
+  right: 24px;
+  line-height: 1;
+}
+
+.transportDepartureCardHighlight .transportDepartureIndex {
+  color: rgba(16, 185, 129, 0.1);
+}
+
+.transportDepartureCard h4 {
+  font-size: 22px;
+  font-weight: 700;
+  color: #111827;
+  margin: 0 0 12px;
+}
+
+.transportDepartureCard p {
+  font-size: 14px;
+  color: #6b7280;
+  line-height: 1.7;
+  margin: 0 0 20px;
+}
+
+.transportDepartureStations {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.transportDepartureStationsLabel {
+  font-size: 11px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  color: #9ca3af;
+}
+
+.transportDepartureStation {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 8px 14px;
+  background: #ffffff;
+  border: 1px solid #e5e7eb;
+  color: #374151;
+  border-radius: 10px;
+  font-size: 14px;
+  font-weight: 600;
+}
+
+.transportDepartureStation svg {
+  color: #10b981;
+}
+
+.transportDepartureCardHighlight .transportDepartureStation {
+  background: rgba(255, 255, 255, 0.8);
+  border-color: rgba(16, 185, 129, 0.3);
+}
+
+/* Train Companies Section */
+.transportTrainsSection {
+  padding: 64px 0;
+  background: linear-gradient(180deg, #f8fafc 0%, #f1f5f9 100%);
+}
+
+.transportTrainsGrid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 32px;
+}
+
+@media (min-width: 1024px) {
+  .transportTrainsGrid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+.transportTrainCard {
+  background: #ffffff;
+  border-radius: 24px;
+  overflow: hidden;
+  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.08);
+  transition: all 0.3s ease;
+}
+
+.transportTrainCard:hover {
+  box-shadow: 0 25px 60px rgba(0, 0, 0, 0.15);
+  transform: translateY(-8px);
+}
+
+.transportTrainHeader {
+  position: relative;
+  height: 220px;
+}
+
+.transportTrainHeader img {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.transportTrainHeaderOverlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(to top, rgba(0, 0, 0, 0.85) 0%, rgba(0, 0, 0, 0.1) 100%);
+  padding: 28px;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+}
+
+.transportTrainBadge {
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  padding: 8px 14px;
+  background: rgba(255, 255, 255, 0.95);
+  color: #111827;
+  border-radius: 10px;
+  font-size: 11px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.transportTrainHeaderOverlay h4 {
+  font-size: 32px;
+  font-weight: 800;
+  color: #ffffff;
+  margin: 0 0 8px;
+  letter-spacing: -0.02em;
+}
+
+.transportTrainHeaderOverlay p {
+  font-size: 15px;
+  color: rgba(255, 255, 255, 0.85);
+  margin: 0;
+}
+
+.transportTrainBody {
+  padding: 28px;
+}
+
+.transportTrainOptions {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  margin-bottom: 24px;
+}
+
+.transportTrainOption {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 16px 20px;
+  background: #f9fafb;
+  border-radius: 14px;
+  border: 1px solid #e5e7eb;
+  gap: 16px;
+  transition: all 0.2s ease;
+}
+
+.transportTrainOption:hover {
+  background: #f3f4f6;
+  border-color: #d1d5db;
+}
+
+.transportTrainOptionLuxury {
+  background: linear-gradient(135deg, #fef3c7 0%, #fde68a 100%);
+  border-color: #fbbf24;
+}
+
+.transportTrainOptionLuxury:hover {
+  background: linear-gradient(135deg, #fde68a 0%, #fcd34d 100%);
+}
+
+.transportTrainOptionLeft {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.transportTrainOptionName {
+  font-size: 16px;
+  font-weight: 700;
+  color: #111827;
+}
+
+.transportTrainOptionType {
+  font-size: 10px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  padding: 4px 10px;
+  border-radius: 6px;
+  background: #e0f2fe;
+  color: #0369a1;
+  display: inline-block;
+  width: fit-content;
+}
+
+.transportTrainOptionTypeBudgetFriendly {
+  background: #dcfce7;
+  color: #166534;
+}
+
+.transportTrainOptionTypePanoramic {
+  background: #e0f2fe;
+  color: #0369a1;
+}
+
+.transportTrainOptionTypePremium {
+  background: #f3e8ff;
+  color: #7c3aed;
+}
+
+.transportTrainOptionTypeLuxury,
+.transportTrainOptionTypeUltraLuxury {
+  background: #fef3c7;
+  color: #92400e;
+}
+
+.transportTrainOptionFeatures {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  gap: 4px;
+  text-align: right;
+}
+
+.transportTrainOptionFeatures span {
+  font-size: 12px;
+  color: #6b7280;
+}
+
+.transportTrainOptionMore {
+  font-weight: 600;
+  color: #3b82f6 !important;
+}
+
+.transportTrainLink {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  padding: 16px 28px;
+  background: linear-gradient(135deg, #0c4a6e 0%, #075985 100%);
+  color: #ffffff;
+  text-decoration: none;
+  border-radius: 14px;
+  font-size: 16px;
+  font-weight: 600;
+  transition: all 0.25s ease;
+}
+
+.transportTrainLink:hover {
+  background: linear-gradient(135deg, #075985 0%, #0369a1 100%);
+  transform: translateY(-2px);
+  box-shadow: 0 10px 30px rgba(12, 74, 110, 0.3);
+}
+
+.transportTrainLink svg {
+  transition: transform 0.2s ease;
+}
+
+.transportTrainLink:hover svg {
+  transform: translateX(4px);
+}
+
+/* CTA Section */
+.transportCTA {
+  padding: 64px 0;
+  background: linear-gradient(135deg, #0f172a 0%, #1e293b 100%);
+}
+
+.transportCTAContent {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 32px;
+  text-align: center;
+}
+
+@media (min-width: 768px) {
+  .transportCTAContent {
+    flex-direction: row;
+    justify-content: space-between;
+    text-align: left;
+  }
+}
+
+.transportCTAText h3 {
+  font-size: 32px;
+  font-weight: 700;
+  color: #ffffff;
+  margin: 0 0 8px;
+  letter-spacing: -0.02em;
+}
+
+.transportCTAText p {
+  font-size: 16px;
+  color: rgba(255, 255, 255, 0.7);
+  margin: 0;
+}
+
+.transportCTAButtons {
+  display: flex;
+  gap: 16px;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.transportCTABtn {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  padding: 16px 28px;
+  background: #ffffff;
+  color: #0f172a;
+  text-decoration: none;
+  border-radius: 14px;
+  font-size: 15px;
+  font-weight: 700;
+  transition: all 0.25s ease;
+}
+
+.transportCTABtn:hover {
+  background: #f8fafc;
+  transform: translateY(-3px);
+  box-shadow: 0 15px 40px rgba(255, 255, 255, 0.15);
+}
+
+.transportCTABtn svg {
+  opacity: 0.5;
+  transition: opacity 0.2s ease;
+}
+
+.transportCTABtn:hover svg {
+  opacity: 1;
+}
