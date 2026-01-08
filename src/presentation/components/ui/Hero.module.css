@@ -8,6 +8,7 @@
   align-items: center;
   justify-content: center;
   overflow: hidden;
+  /* No margin-top - hero extends to viewport top so header is transparent over it */
 }
 
 @media (max-width: 767px) {
@@ -70,11 +71,11 @@
 }
 
 .heroTitle {
-  font-size: 28px;
+  font-size: 24px;
   font-weight: 600;
   font-family: 'Wulkan Display SemiBold', 'Wulkan Display', sans-serif;
   color: #ffffff;
-  margin-bottom: 8px;
+  margin-bottom: 2px;
   letter-spacing: -0.02em;
   line-height: 1.2;
   text-align: center;
@@ -82,22 +83,22 @@
 
 @media (min-width: 640px) {
   .heroTitle {
-    font-size: 38px;
-    margin-bottom: 10px;
+    font-size: 32px;
+    margin-bottom: 4px;
   }
 }
 
 @media (min-width: 768px) {
   .heroTitle {
-    font-size: 48px;
-    margin-bottom: 12px;
+    font-size: 40px;
+    margin-bottom: 6px;
   }
 }
 
 @media (min-width: 1024px) {
   .heroTitle {
-    font-size: 56px;
-    margin-bottom: 14px;
+    font-size: 48px;
+    margin-bottom: 8px;
   }
 }
 

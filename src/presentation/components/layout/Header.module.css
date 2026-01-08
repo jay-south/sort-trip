@@ -5,16 +5,16 @@
   left: 0;
   right: 0;
   z-index: 50;
-  background-color: transparent;
-  border-bottom: none;
+  background: transparent !important;
+  border-bottom: none !important;
   transition: all 0.3s ease;
 }
 
 /* Header with background when scrolled */
 .headerScrolled {
-  background-color: rgba(255, 255, 255, 0.2);
+  background: rgba(255, 255, 255, 0.2) !important;
   backdrop-filter: blur(12px);
-  border-bottom: 1px solid rgba(229, 231, 235, 0.2);
+  border-bottom: 1px solid rgba(229, 231, 235, 0.2) !important;
 }
 
 .headerContainer {
@@ -22,6 +22,7 @@
   max-width: 1280px;
   margin: 0 auto;
   padding: 0 16px;
+  background: transparent !important;
 }
 
 @media (min-width: 768px) {
@@ -41,6 +42,7 @@
   align-items: center;
   justify-content: space-between;
   height: 80px;
+  background: transparent !important;
 }
 
 @media (max-width: 639px) {

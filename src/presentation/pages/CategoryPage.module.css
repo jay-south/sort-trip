@@ -2104,6 +2104,7 @@
   align-items: center;
   justify-content: center;
   overflow: hidden;
+  /* No margin-top - hero extends to viewport top so header is transparent over it */
 }
 
 @media (min-width: 768px) {
@@ -2149,7 +2150,7 @@
 }
 
 .transportHeroTitle {
-  font-size: 48px;
+  font-size: 36px;
   font-weight: 800;
   color: #ffffff;
   line-height: 1.1;
@@ -2160,7 +2161,7 @@
 
 @media (min-width: 768px) {
   .transportHeroTitle {
-    font-size: 72px;
+    font-size: 52px;
   }
 }
 
