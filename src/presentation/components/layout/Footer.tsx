@@ -8,11 +8,15 @@ export const Footer = () => {
         <div className={styles.footerGrid}>
           {/* Brand */}
           <div className={styles.footerBrand}>
-            <Link to="/" className={styles.footerLogo}>
-              <span className={styles.footerLogoText}>
-                Sort<span className={styles.footerLogoAccent}>Trip</span>
-              </span>
-            </Link>
+            <div className={styles.footerLogoWrapper}>
+              <Link to="/" className={styles.footerLogo}>
+                <img 
+                  src="/logo-sort.svg" 
+                  alt="SortTrip Cuzco" 
+                  className={styles.footerLogoImage}
+                />
+              </Link>
+            </div>
             <p className={styles.footerDescription}>
               Your gateway to authentic Cuzco experiences. Discover the magic of the ancient Inca Empire.
             </p>

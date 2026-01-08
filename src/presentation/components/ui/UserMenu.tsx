@@ -3,7 +3,11 @@ import { Link } from 'react-router-dom';
 import { useAuth } from '../../hooks';
 import styles from './UserMenu.module.css';
 
-export const UserMenu = () => {
+interface UserMenuProps {
+  isScrolled?: boolean;
+}
+
+export const UserMenu = ({ isScrolled = false }: UserMenuProps) => {
   const { isAuthenticated, profile, user, signInWithGoogle, signOut, isLoading } = useAuth();
   const [isOpen, setIsOpen] = useState(false);
   const menuRef = useRef<HTMLDivElement>(null);
@@ -26,7 +30,7 @@ export const UserMenu = () => {
       <button
         onClick={signInWithGoogle}
         disabled={isLoading}
-        className={styles.loginButton}
+        className={`${styles.loginButton} ${isScrolled ? styles.loginButtonScrolled : ''}`}
       >
         {isLoading ? (
           <span className={styles.spinner} />

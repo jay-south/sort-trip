@@ -567,7 +567,9 @@ export const CategoryPage = () => {
 
   return (
     <div className={styles.page}>
-      <Hero title={config.title} subtitle={config.subtitle} backgroundImage={config.image} />
+      {!isTransportation && (
+        <Hero title={config.title} subtitle={config.subtitle} backgroundImage={config.image} />
+      )}
 
       {/* Tour Platforms Section for Tours & Activities */}
       {isToursActivities && (
@@ -754,7 +756,6 @@ export const CategoryPage = () => {
             />
             <div className={styles.transportHeroOverlay} />
             <div className={styles.transportHeroContent}>
-              <span className={styles.transportHeroEyebrow}>🚂 The Journey</span>
               <h1 className={styles.transportHeroTitle}>
                 Trains to<br />Machu Picchu
               </h1>

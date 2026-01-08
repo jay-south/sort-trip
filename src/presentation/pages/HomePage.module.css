@@ -72,6 +72,13 @@
   line-height: 1.6;
 }
 
+@media (min-width: 1024px) {
+  .sectionDescription {
+    max-width: 100%;
+    white-space: nowrap;
+  }
+}
+
 .categoriesGrid {
   display: grid;
   grid-template-columns: 1fr;

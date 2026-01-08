@@ -2,7 +2,7 @@
   position: relative;
 }
 
-/* Login Button - white always */
+/* Login Button - white by default, black when header scrolled */
 .loginButton {
   display: flex;
   align-items: center;
@@ -27,6 +27,18 @@
 .loginButton:disabled {
   opacity: 0.6;
   cursor: not-allowed;
+}
+
+/* Login Button when header is scrolled */
+.loginButtonScrolled {
+  border-color: #111827 !important;
+  color: #111827 !important;
+}
+
+.loginButtonScrolled:hover {
+  background: rgba(0, 0, 0, 0.05) !important;
+  border-color: #111827 !important;
+  color: #111827 !important;
 }
 
 .googleIcon {

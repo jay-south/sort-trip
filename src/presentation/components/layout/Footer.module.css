@@ -49,6 +49,7 @@
 
 .footerBrand {
   grid-column: span 1;
+  isolation: isolate;
 }
 
 @media (min-width: 1024px) {
@@ -57,19 +58,40 @@
   }
 }
 
-.footerLogo {
-  display: inline-block;
+.footerLogoWrapper {
+  width: 180px;
+  height: 40px;
   margin-bottom: 16px;
+  overflow: hidden;
+  position: relative;
+  isolation: isolate;
 }
 
-.footerLogoText {
-  font-size: 20px;
-  font-weight: 600;
-  letter-spacing: -0.02em;
+.footerLogo {
+  display: block;
+  text-decoration: none;
+  width: 100%;
+  height: 100%;
+  line-height: 0;
+  font-size: 0;
+  overflow: hidden;
 }
 
-.footerLogoAccent {
-  color: #f59e0b;
+.footerLogoImage {
+  height: 40px;
+  width: auto;
+  max-width: 180px;
+  display: block;
+  object-fit: contain;
+  object-position: left center;
+  border: 0;
+  outline: none;
+  box-shadow: none;
+  margin: 0;
+  padding: 0;
+  vertical-align: top;
+  position: relative;
+  z-index: 1;
 }
 
 .footerDescription {
@@ -81,6 +103,8 @@
 .footerSection {
   display: flex;
   flex-direction: column;
+  margin: 0;
+  padding: 0;
 }
 
 .footerSectionTitle {
@@ -97,12 +121,21 @@
   display: flex;
   flex-direction: column;
   gap: 12px;
+  margin: 0;
+  padding: 0;
+}
+
+.footerList li {
+  margin: 0;
+  padding: 0;
+  list-style: none;
 }
 
 .footerLink {
   font-size: 14px;
   color: #9ca3af;
   transition: color 0.15s ease;
+  display: inline-block;
 }
 
 .footerLink:hover {
@@ -112,6 +145,9 @@
 .footerText {
   font-size: 14px;
   color: #9ca3af;
+  margin: 0;
+  padding: 0;
+  list-style: none;
 }
 
 .footerDivider {

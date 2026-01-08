@@ -93,7 +93,7 @@ export const Header = () => {
             {/* Logo */}
             <Link to="/" className={styles.logo}>
               <img 
-                src="/logos/logo.svg" 
+                src={isScrolled ? "/logo-scroll.svg" : "/logo-sort.svg"}
                 alt="SortTrip Cuzco" 
                 className={styles.logoImage}
               />
@@ -183,7 +183,7 @@ export const Header = () => {
 
           {/* User Menu & Mobile menu */}
           <div className={styles.headerActions}>
-            <UserMenu />
+            <UserMenu isScrolled={isScrolled} />
               
               {/* Mobile menu button */}
               <button className={styles.mobileMenuButton}>

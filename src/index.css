@@ -8,11 +8,29 @@
   font-display: swap;
 }
 
+/* Wulkan Display SemiBold - for hero titles */
+@font-face {
+  font-family: 'Wulkan Display SemiBold';
+  src: url('/WulkanDisplaySemiBold.otf') format('opentype');
+  font-weight: 600;
+  font-style: normal;
+  font-display: swap;
+}
+
 /* Intl Regular - for body text */
 @font-face {
   font-family: 'Intl';
   src: url('/Intl_Regular.ttf') format('truetype');
   font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+/* SuisseIntl Light - for hero subtitles */
+@font-face {
+  font-family: 'SuisseIntl';
+  src: url('/fonnts.com-SuisseIntl-Light.ttf') format('truetype');
+  font-weight: 300;
   font-style: normal;
   font-display: swap;
 }

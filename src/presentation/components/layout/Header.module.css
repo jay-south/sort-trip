@@ -55,18 +55,11 @@
   flex-shrink: 0;
 }
 
-/* Logo image - with white filter by default, normal when scrolled */
+/* Logo image - always show original colors */
 .logoImage {
   height: 48px;
   width: auto;
   object-fit: contain;
-  filter: brightness(0) invert(1);
-  transition: filter 0.3s ease;
-}
-
-/* Logo image when scrolled - remove filter to show original colors */
-.headerScrolled .logoImage {
-  filter: none;
 }
 
 @media (max-width: 639px) {
@@ -108,6 +101,21 @@
 .navLinkActive {
   color: #ffffff;
   background-color: rgba(255, 255, 255, 0.15);
+}
+
+/* Navigation links when scrolled - black text */
+.headerScrolled .navLink {
+  color: #111827;
+}
+
+.headerScrolled .navLink:hover {
+  color: #111827;
+  background-color: rgba(0, 0, 0, 0.05);
+}
+
+.headerScrolled .navLinkActive {
+  color: #111827;
+  background-color: rgba(0, 0, 0, 0.08);
 }
 
 /* Navigation item with dropdown */
@@ -183,7 +191,7 @@
   gap: 0.5rem;
 }
 
-/* Mobile menu button - white always */
+/* Mobile menu button - white by default, black when scrolled */
 .mobileMenuButton {
   display: flex;
   padding: 8px;
@@ -201,12 +209,20 @@
   color: #ffffff;
 }
 
+.headerScrolled .mobileMenuButton {
+  color: #111827;
+}
+
+.headerScrolled .mobileMenuButton:hover {
+  color: #111827;
+}
+
 .mobileMenuIcon {
   width: 20px;
   height: 20px;
 }
 
-/* Get to Cusco Button - white always */
+/* Get to Cusco Button - white by default, black when scrolled */
 .getCuscoBtn {
   display: none;
   padding: 8px 16px;
@@ -231,6 +247,18 @@
   background: rgba(255, 255, 255, 0.2);
   border-color: #ffffff;
   color: #ffffff;
+}
+
+/* Get to Cusco Button when scrolled */
+.headerScrolled .getCuscoBtn {
+  border-color: #111827;
+  color: #111827;
+}
+
+.headerScrolled .getCuscoBtn:hover {
+  background: rgba(0, 0, 0, 0.05);
+  border-color: #111827;
+  color: #111827;
 }
 
 /* Modal Overlay */

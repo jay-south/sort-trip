@@ -70,10 +70,11 @@
 }
 
 .heroTitle {
-  font-size: 32px;
-  font-weight: 300;
+  font-size: 28px;
+  font-weight: 600;
+  font-family: 'Wulkan Display SemiBold', 'Wulkan Display', sans-serif;
   color: #ffffff;
-  margin-bottom: 16px;
+  margin-bottom: 8px;
   letter-spacing: -0.02em;
   line-height: 1.2;
   text-align: center;
@@ -81,22 +82,22 @@
 
 @media (min-width: 640px) {
   .heroTitle {
-    font-size: 44px;
-    margin-bottom: 20px;
+    font-size: 38px;
+    margin-bottom: 10px;
   }
 }
 
 @media (min-width: 768px) {
   .heroTitle {
-    font-size: 56px;
-    margin-bottom: 24px;
+    font-size: 48px;
+    margin-bottom: 12px;
   }
 }
 
 @media (min-width: 1024px) {
   .heroTitle {
-    font-size: 64px;
-    margin-bottom: 28px;
+    font-size: 56px;
+    margin-bottom: 14px;
   }
 }
 
@@ -107,8 +108,11 @@
   margin: 0 auto;
   line-height: 1.6;
   font-weight: 300;
+  font-family: 'SuisseIntl', 'Intl', sans-serif;
   padding: 0 8px;
   text-align: center;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
 }
 
 @media (min-width: 640px) {
