@@ -2,43 +2,31 @@
   position: relative;
 }
 
-/* Login Button - white background by default */
+/* Login Button - white always */
 .loginButton {
   display: flex;
   align-items: center;
   gap: 0.5rem;
   padding: 0.5rem 1rem;
-  background: white;
-  border: 1px solid #e5e7eb;
+  background: transparent;
+  border: 1px solid rgba(255, 255, 255, 0.9);
   border-radius: 9999px;
   font-size: 0.875rem;
   font-weight: 500;
-  color: #374151;
+  color: rgba(255, 255, 255, 0.9);
   cursor: pointer;
   transition: all 0.2s;
 }
 
 .loginButton:hover {
-  background: #f9fafb;
-  border-color: #d1d5db;
+  background: rgba(255, 255, 255, 0.15);
+  border-color: #ffffff;
+  color: #ffffff;
 }
 
 .loginButton:disabled {
   opacity: 0.6;
   cursor: not-allowed;
-}
-
-/* Login Button when header is transparent (not scrolled) */
-.loginButtonTransparent {
-  background: transparent;
-  border-color: rgba(255, 255, 255, 0.9);
-  color: rgba(255, 255, 255, 0.9);
-}
-
-.loginButtonTransparent:hover {
-  background: rgba(255, 255, 255, 0.15);
-  border-color: #ffffff;
-  color: #ffffff;
 }
 
 .googleIcon {
@@ -74,11 +62,6 @@
 }
 
 .avatarButton:hover {
-  border-color: #3b82f6;
-}
-
-/* Avatar Button when header is transparent (not scrolled) */
-.avatarButtonTransparent:hover {
   border-color: rgba(255, 255, 255, 0.8);
 }
 

@@ -3,11 +3,7 @@ import { Link } from 'react-router-dom';
 import { useAuth } from '../../hooks';
 import styles from './UserMenu.module.css';
 
-interface UserMenuProps {
-  isScrolled?: boolean;
-}
-
-export const UserMenu = ({ isScrolled = false }: UserMenuProps) => {
+export const UserMenu = () => {
   const { isAuthenticated, profile, user, signInWithGoogle, signOut, isLoading } = useAuth();
   const [isOpen, setIsOpen] = useState(false);
   const menuRef = useRef<HTMLDivElement>(null);
@@ -30,7 +26,7 @@ export const UserMenu = ({ isScrolled = false }: UserMenuProps) => {
       <button
         onClick={signInWithGoogle}
         disabled={isLoading}
-        className={`${styles.loginButton} ${!isScrolled ? styles.loginButtonTransparent : ''}`}
+        className={styles.loginButton}
       >
         {isLoading ? (
           <span className={styles.spinner} />
@@ -70,7 +66,7 @@ export const UserMenu = ({ isScrolled = false }: UserMenuProps) => {
     <div className={styles.container} ref={menuRef}>
       <button
         onClick={() => setIsOpen(!isOpen)}
-        className={`${styles.avatarButton} ${!isScrolled ? styles.avatarButtonTransparent : ''}`}
+        className={styles.avatarButton}
         aria-label="User menu"
       >
         {avatarUrl ? (

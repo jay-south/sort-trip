@@ -1,15 +1,65 @@
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useRef } from 'react';
 import { Link, useLocation } from 'react-router-dom';
 import { useNavigationStore } from '../../../store';
 import { UserMenu } from '../ui';
 import styles from './Header.module.css';
 
+// Navigation structure with dropdowns
+const navigationStructure = [
+  {
+    id: 'travel-around',
+    label: 'Travel around',
+    path: '/travel-around',
+    submenu: [
+      { label: 'Places to visit', path: '/travel-around' },
+      { label: 'Tours & Activities', path: '/tours-activities' },
+    ],
+  },
+  {
+    id: 'transportation',
+    label: 'Transportation',
+    path: '/transportation',
+    submenu: [
+      { label: 'To Cusco', path: '#', isModal: true },
+      { label: 'To Machu Pichu', path: '/transportation' },
+    ],
+  },
+  {
+    id: 'stays',
+    label: 'Stays',
+    path: '/stays',
+    submenu: [
+      { label: 'Booking', path: '/stays' },
+      { label: 'Airbnb', path: '/stays' },
+      { label: 'Hosteltheworld', path: '/stays' },
+    ],
+  },
+  {
+    id: 'tours-activities',
+    label: 'Tours & Activities',
+    path: '/tours-activities',
+    submenu: [
+      { label: 'See tours options', path: '/tours-activities' },
+    ],
+  },
+  {
+    id: 'eat-drink',
+    label: 'Eat & Drink',
+    path: '/eat-drink',
+    submenu: [
+      { label: 'Where to eat', path: '/eat-drink' },
+      { label: 'Where to drink', path: '/eat-drink' },
+    ],
+  },
+];
+
 export const Header = () => {
-  const { navigationItems } = useNavigationStore();
   const location = useLocation();
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [activeTab, setActiveTab] = useState<'flights' | 'weather' | 'machu'>('flights');
   const [isScrolled, setIsScrolled] = useState(false);
+  const [openDropdown, setOpenDropdown] = useState<string | null>(null);
+  const dropdownRefs = useRef<{ [key: string]: HTMLDivElement | null }>({});
 
   // Detect scroll to add background
   useEffect(() => {
@@ -20,6 +70,21 @@ export const Header = () => {
     window.addEventListener('scroll', handleScroll);
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
+
+  // Close dropdown when clicking outside
+  useEffect(() => {
+    const handleClickOutside = (event: MouseEvent) => {
+      if (openDropdown) {
+        const ref = dropdownRefs.current[openDropdown];
+        if (ref && !ref.contains(event.target as Node)) {
+          setOpenDropdown(null);
+        }
+      }
+    };
+
+    document.addEventListener('mousedown', handleClickOutside);
+    return () => document.removeEventListener('mousedown', handleClickOutside);
+  }, [openDropdown]);
 
   return (
     <>
@@ -37,31 +102,87 @@ export const Header = () => {
 
           {/* Navigation */}
           <nav className={styles.nav}>
-            {navigationItems.map((item) => {
-              const isActive = location.pathname === item.path;
+            {navigationStructure.map((item) => {
+              const isActive = location.pathname === item.path || 
+                item.submenu.some(sub => sub.path === location.pathname);
+              const isOpen = openDropdown === item.id;
+
+              const handleMainClick = (e: React.MouseEvent) => {
+                if (item.submenu.length > 0) {
+                  e.preventDefault();
+                  setOpenDropdown(isOpen ? null : item.id);
+                }
+              };
+
+              const handleSubmenuClick = (subItem: typeof item.submenu[0]) => {
+                if (subItem.isModal) {
+                  setIsModalOpen(true);
+                  setOpenDropdown(null);
+                } else {
+                  setOpenDropdown(null);
+                }
+              };
+
               return (
-                <Link
+                <div
                   key={item.id}
-                  to={item.path}
-                  className={`${styles.navLink} ${isActive ? styles.navLinkActive : ''}`}
+                  className={styles.navItem}
+                  ref={(el) => (dropdownRefs.current[item.id] = el)}
                 >
-                  {item.label}
-                </Link>
+                  <Link
+                    to={item.path}
+                    className={`${styles.navLink} ${isActive ? styles.navLinkActive : ''}`}
+                    onClick={handleMainClick}
+                  >
+                    {item.label}
+                    {item.submenu.length > 0 && (
+                      <svg
+                        className={`${styles.chevron} ${isOpen ? styles.chevronOpen : ''}`}
+                        fill="none"
+                        stroke="currentColor"
+                        viewBox="0 0 24 24"
+                      >
+                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
+                      </svg>
+                    )}
+                  </Link>
+
+                  {/* Dropdown Menu */}
+                  {isOpen && item.submenu.length > 0 && (
+                    <div className={styles.dropdown}>
+                      {item.submenu.map((subItem, index) => {
+                        if (subItem.isModal) {
+                          return (
+                            <button
+                              key={index}
+                              className={styles.dropdownItem}
+                              onClick={() => handleSubmenuClick(subItem)}
+                            >
+                              {subItem.label}
+                            </button>
+                          );
+                        }
+                        return (
+                          <Link
+                            key={index}
+                            to={subItem.path}
+                            className={styles.dropdownItem}
+                            onClick={() => handleSubmenuClick(subItem)}
+                          >
+                            {subItem.label}
+                          </Link>
+                        );
+                      })}
+                    </div>
+                  )}
+                </div>
               );
             })}
-            
-            {/* Get to Cusco Button - Next to navigation */}
-            <button 
-              className={styles.getCuscoBtn}
-              onClick={() => setIsModalOpen(true)}
-            >
-              Get to Cusco
-            </button>
           </nav>
 
           {/* User Menu & Mobile menu */}
           <div className={styles.headerActions}>
-            <UserMenu isScrolled={isScrolled} />
+            <UserMenu />
               
               {/* Mobile menu button */}
               <button className={styles.mobileMenuButton}>
