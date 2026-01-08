@@ -1,6 +1,5 @@
 import { useState, useEffect, useRef } from 'react';
 import { Link, useLocation } from 'react-router-dom';
-import { useNavigationStore } from '../../../store';
 import { UserMenu } from '../ui';
 import styles from './Header.module.css';
 
@@ -127,7 +126,9 @@ export const Header = () => {
                 <div
                   key={item.id}
                   className={styles.navItem}
-                  ref={(el) => (dropdownRefs.current[item.id] = el)}
+                  ref={(el) => {
+                    dropdownRefs.current[item.id] = el;
+                  }}
                 >
                   <Link
                     to={item.path}
